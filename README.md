@@ -297,3 +297,7 @@ No input is silently truncated. A profile change requires regeneration and reind
 ### Cached per-file embeddings
 
 The local [PackageFile embedding pilot](docs/embeddings/README.md) uses ai-embed-bundle, heading/paragraph/token-aware chunks and a durable DuckDB cache for README, AGENTS and docs files. Existing averaged package vectors remain available as the baseline. The seven-file fixture proves that reloading its records restores all 156 chunk vectors without model calls.
+
+### Clustering experiment
+
+The [192-package clustering pilot](docs/clustering/README.md) compares existing cached Nomic vectors with Composer keywords without model calls or data changes. It includes a reproducible export command and an offline Python report generator. The first result has weak global separation, a recognizable Sonata/admin group, and a strong warning about nearly empty READMEs; it does not assign tags automatically.

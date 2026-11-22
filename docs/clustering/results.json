@@ -1,0 +1,4115 @@
+{
+  "manifest": {
+    "type": "manifest",
+    "schemaVersion": 1,
+    "source": "legacy-package-cache",
+    "profile": {
+      "model": "nomic-embed-text:latest",
+      "dimensions": 768,
+      "revision": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+      "textVersion": "readme-v1-chunks-1500-mean"
+    },
+    "seed": "packages-clustering-v1",
+    "sampleSize": 192,
+    "scanned": 8145,
+    "eligible": 8145,
+    "excludedStaleOrInvalid": 0,
+    "selection": "smallest SHA-256(seed + NUL + package name)",
+    "embeddingCalls": 0
+  },
+  "fixtureSha256": "c494898037e3ff6e9b119cbcbffa03ac1e3d27158f974113aaa2c48ba2a0703c",
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.5.5",
+    "scikitLearn": "1.9.1"
+  },
+  "method": {
+    "algorithm": "KMeans on L2-normalized cached vectors",
+    "seed": 42,
+    "nInit": 20,
+    "selection": "Highest cosine silhouette among k=4..12; exploratory, not a validated taxonomy",
+    "keywordsUsedForClustering": false,
+    "modelCalls": 0
+  },
+  "sweep": [
+    {
+      "k": 4,
+      "cosineSilhouette": 0.025546124618587924
+    },
+    {
+      "k": 5,
+      "cosineSilhouette": 0.01660606838759388
+    },
+    {
+      "k": 6,
+      "cosineSilhouette": 0.05457560591505654
+    },
+    {
+      "k": 7,
+      "cosineSilhouette": 0.023337176158680598
+    },
+    {
+      "k": 8,
+      "cosineSilhouette": 0.032447108438134586
+    },
+    {
+      "k": 9,
+      "cosineSilhouette": 0.010257771532800946
+    },
+    {
+      "k": 10,
+      "cosineSilhouette": 0.021022920070666584
+    },
+    {
+      "k": 11,
+      "cosineSilhouette": 0.019902735067047213
+    },
+    {
+      "k": 12,
+      "cosineSilhouette": 0.021773754367370234
+    }
+  ],
+  "selected": {
+    "k": 6,
+    "cosineSilhouette": 0.05457560591505654
+  },
+  "seedStability": [
+    {
+      "seed": 7,
+      "adjustedRand": 0.33689586424085255
+    },
+    {
+      "seed": 19,
+      "adjustedRand": 0.35167595535297447
+    },
+    {
+      "seed": 81,
+      "adjustedRand": 0.3440274268123451
+    }
+  ],
+  "keywordCoverage": {
+    "withAny": 136,
+    "withSpecific": 134,
+    "genericExcluded": [
+      "bundle",
+      "bundles",
+      "composer",
+      "extension",
+      "framework",
+      "library",
+      "php",
+      "symfony",
+      "symfony bundle",
+      "symfony-bundle"
+    ],
+    "withinClusterPairSharedSpecificKeyword": 0.019342359767891684,
+    "allPairsSharedSpecificKeyword": 0.01380316462798788,
+    "comparableWithinPairs": 2585,
+    "comparableAllPairs": 8911
+  },
+  "keywordBaseline": {
+    "packages": 134,
+    "excludedWithoutSpecificKeywords": 58,
+    "adjustedRandAgainstEmbeddings": 0.019935349371289348,
+    "groups": [
+      {
+        "size": 109,
+        "names": [
+          "stejac/guarded-chat-bundle",
+          "nucleos/profile-bundle",
+          "thedarsideofit/afip-bundle",
+          "pickle/admin-bundle",
+          "aropixel/blog-bundle",
+          "webalternatif/flysystem-dsn",
+          "ekyna/mailing-bundle",
+          "alya/symfony-inspector-mcp",
+          "gonzaloalonsod/afip-bundle",
+          "locaine/lcn-image-uploader-bundle",
+          "ekyna/colissimo-bundle",
+          "idci/contact-form-bundle",
+          "nfephp-org/sped-nfe",
+          "tecnocreaciones/install-bundle",
+          "vivutio/ticketing-module",
+          "pdias/saml-bundle",
+          "oh/date-extra-validator-bundle",
+          "ocubom/twig-extra-bundle",
+          "jasonroman/flot",
+          "baks-dev/yandex-market-products",
+          "huluti/doctrine-relations-analyser",
+          "symfony/webhook",
+          "ibrows/sylius-shop-bundle",
+          "melbahja/seo",
+          "integrated/solr-bundle",
+          "mejdoubimeriem/wcs",
+          "web-token/jwt-encryption",
+          "coolms/entity-bundle",
+          "minishlink/web-push-bundle",
+          "klesk/slider-bundle",
+          "symfony/key-management",
+          "indexnowkit/console",
+          "dompat/stemmer",
+          "morket/hmvc-bundle",
+          "errogaht/wavespeed-ai-bundle",
+          "inuar/custom-entity-bundle",
+          "php-nik/pm-bundle",
+          "hasantayyar/url-shortener-bundle",
+          "fi/imapbundle",
+          "eo/keyclient-bundle",
+          "phpunit/php-invoker",
+          "webchemistry/invoice",
+          "fedale/access-control-voter-bundle",
+          "snc/redis-bundle",
+          "chamber-orchestra/view-bundle",
+          "copiaincolla/metatags-bundle",
+          "knplabs/knp-gaufrette-bundle",
+          "baks-dev/four-tochki-orders",
+          "agentsib/crontab-bundle",
+          "rekalogika/rekapager-symfony-bridge",
+          "ciricihq/match-against-bundle",
+          "recruiter/common-bundle",
+          "rdf/job-definition-format-bundle",
+          "jeremeamia/superclosure",
+          "kaliop/ezfindsearchenginebundle",
+          "mjohnson/decoda",
+          "appaydin/pd-user",
+          "teltek/pmk2-timed-pub-decisions-bundle",
+          "pygments/pygments",
+          "baconmanager/rest-bundle",
+          "goksagun/doctrine-cache-invalidation-bundle",
+          "tecnick.com/tcpdf",
+          "pubnub/pubnub",
+          "idci/simple-metadata-bundle",
+          "querdos/qfile-encryption-bundle",
+          "thibautg16/eedomus-bundle",
+          "devilcius/admin-menu-bundle",
+          "novactive/ezstatictemplatesbundle",
+          "okto/media-bundle",
+          "austral/filter-bundle",
+          "symsensor/actuator-mailer-bundle",
+          "php-kit/composer-bower-plugin",
+          "ufo-tech/packages",
+          "akyos/ux-native-cli",
+          "babdev/money-bundle",
+          "arxy/dataloader-bundle",
+          "ibrows/be-simple-deployment-bundle",
+          "baconmanager/user-bundle",
+          "intervention/gif",
+          "ys-tools/default-theme-configuration-bundle",
+          "billhance/remote-assets-bundle",
+          "qjon/ri-filemanager",
+          "symfony/mime",
+          "eerzho/opentelemetry-auto-class",
+          "pyrrah/twemoji",
+          "lexxpavlov/spellingbundle",
+          "tangoman/front-bundle",
+          "bnza/spgsp",
+          "pixelavengers/extra-validator-bundle",
+          "hslavich/simplesamlphp-bundle",
+          "teckhouse/analytics-bundle",
+          "kunstmaan/form-bundle",
+          "aimeos/aimeos-core",
+          "firestorm23/command-runner-bundle",
+          "inisire/react-bundle",
+          "padam87/cron-bundle",
+          "kunstmaan/cache-bundle",
+          "josemaestre/chatbundle",
+          "stfalcon/portfolio-bundle",
+          "wundii/data-mapper",
+          "uga/twig2pdf-bundle",
+          "gollumsf/user-bundle",
+          "michaelesmith/front-controller-security-bundle",
+          "acencyril/echo-bundle",
+          "anatoliynyatin/far-symfony2-jquery-upload",
+          "codeconsortium/ccdn-component-bb-code",
+          "brix/core-bundle",
+          "micro-module/broadway-bundle",
+          "minimaloriginal/menu-bundle"
+        ]
+      },
+      {
+        "size": 6,
+        "names": [
+          "conserto/pomm-model-manager",
+          "tacticmedia/rds-auth-middleware",
+          "certunlp/database-config-bundle",
+          "simplethings/entity-audit-bundle",
+          "conserto/pomm-bundle",
+          "propel/propel1"
+        ]
+      },
+      {
+        "size": 9,
+        "names": [
+          "ventureleap/leap-one-rating-sdk",
+          "ap/cpanel-bundle",
+          "djamadeus/mailchimp-bundle2",
+          "sol/api-platform-mongo-bridge",
+          "tbbc/rest-util",
+          "jcroll/foursquare-api-bundle",
+          "pierre-tranchard/cron-monitor-bundle",
+          "sithous/netsuitebundle",
+          "pdfloresjdav/api-bundle"
+        ]
+      },
+      {
+        "size": 2,
+        "names": [
+          "brt/blog-bundle",
+          "stfalcon/blog-bundle"
+        ]
+      },
+      {
+        "size": 5,
+        "names": [
+          "libre-informatique/seed-batch-bundle",
+          "weare/form-builder",
+          "janalis/collaborate",
+          "rikudou/sonata-formatter-bundle-fork",
+          "dkartasis8bitgroup/sonata-translation-bundle"
+        ]
+      },
+      {
+        "size": 3,
+        "names": [
+          "common-gateway/xxllnc-to-ktb-bundle",
+          "common-gateway/xxllnc-zgw-bundle",
+          "common-gateway/template-bundle"
+        ]
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": 1,
+      "size": 33,
+      "descriptionTerms": [
+        "twig",
+        "gaufrette",
+        "core",
+        "extra",
+        "url",
+        "user",
+        "file",
+        "used"
+      ],
+      "meanSilhouette": -0.04339914661498243,
+      "medianReadmeCharacters": 1417.0,
+      "meanPairCosine": 0.6559889936369876,
+      "noKeywords": 10,
+      "noSpecificKeywords": 10,
+      "topKeywords": [
+        [
+          "shop",
+          2
+        ],
+        [
+          "media",
+          2
+        ],
+        [
+          "cms",
+          2
+        ],
+        [
+          "kunstmaan",
+          2
+        ],
+        [
+          "e-venement",
+          1
+        ],
+        [
+          "libio",
+          1
+        ],
+        [
+          "sonata",
+          1
+        ],
+        [
+          "compress",
+          1
+        ],
+        [
+          "extra",
+          1
+        ],
+        [
+          "html",
+          1
+        ]
+      ],
+      "members": [
+        {
+          "name": "qjon/ri-filemanager",
+          "description": "File manager bundle",
+          "keywords": [
+            "filemanager tinymce"
+          ],
+          "readmeCharacters": 5776,
+          "specificKeywords": [
+            "filemanager tinymce"
+          ],
+          "centroidCosine": 0.8924094248442043,
+          "silhouette": -0.06375947775446486
+        },
+        {
+          "name": "ocubom/twig-extra-bundle",
+          "description": "A Symfony bundle for custom extra Twig extensions",
+          "keywords": [
+            "symfony",
+            "twig",
+            "bundle",
+            "html",
+            "minify",
+            "compress",
+            "extra",
+            "svg",
+            "symfony-bundle",
+            "ocubom"
+          ],
+          "readmeCharacters": 7596,
+          "specificKeywords": [
+            "compress",
+            "extra",
+            "html",
+            "minify",
+            "ocubom",
+            "svg",
+            "twig"
+          ],
+          "centroidCosine": 0.8883312714559505,
+          "silhouette": 0.009450229143315093
+        },
+        {
+          "name": "knplabs/knp-gaufrette-bundle",
+          "description": "Allows to easily use the Gaufrette library in a Symfony project",
+          "keywords": [
+            "media",
+            "file",
+            "filesystem",
+            "abstraction"
+          ],
+          "readmeCharacters": 4398,
+          "specificKeywords": [
+            "abstraction",
+            "file",
+            "filesystem",
+            "media"
+          ],
+          "centroidCosine": 0.8797725613418634,
+          "silhouette": -0.1133047640296258
+        },
+        {
+          "name": "coolms/entity-bundle",
+          "description": "Symfony integration for coolms/entity: the bundle and its extension, the extras infrastructure compiler passes, API Platform property metadata factories for dynamic fields, and the entity search endpoint",
+          "keywords": [
+            "entity",
+            "Extras",
+            "api-platform",
+            "coolms",
+            "symfony-bundle"
+          ],
+          "readmeCharacters": 2190,
+          "specificKeywords": [
+            "api-platform",
+            "coolms",
+            "entity",
+            "extras"
+          ],
+          "centroidCosine": 0.860452774991801,
+          "silhouette": -0.12127023494923328
+        },
+        {
+          "name": "austral/filter-bundle",
+          "description": "Builder and mapper to filter austral",
+          "keywords": [
+            "filter",
+            "mapper",
+            "Austral"
+          ],
+          "readmeCharacters": 1525,
+          "specificKeywords": [
+            "austral",
+            "filter",
+            "mapper"
+          ],
+          "centroidCosine": 0.8423398757557214,
+          "silhouette": -0.04916565785517659
+        },
+        {
+          "name": "jmf/twig-icon-bundle",
+          "description": "Symfony bundle for rendering pre-set icons in Twig templates.",
+          "keywords": [],
+          "readmeCharacters": 1908,
+          "specificKeywords": [],
+          "centroidCosine": 0.8423021327980345,
+          "silhouette": -0.03018440904417156
+        },
+        {
+          "name": "novactive/ezstatictemplatesbundle",
+          "description": "This bundle is used to expose twig templates to a siteaccess",
+          "keywords": [
+            "novactive",
+            "static template"
+          ],
+          "readmeCharacters": 2540,
+          "specificKeywords": [
+            "novactive",
+            "static template"
+          ],
+          "centroidCosine": 0.8403590264263214,
+          "silhouette": -0.005530893654409014
+        },
+        {
+          "name": "kunstmaan/form-bundle",
+          "description": "Managing forms, fields and their submissions by the user is a key functionality missing in most platforms. By leveraging the KunstmaanPagePartBundle system in the KunstmaanFormBundle users gain an easy way to create and manage the form on their website, again without having to worry about the technical side of things.",
+          "keywords": [
+            "cms",
+            "Forms",
+            "kunstmaan"
+          ],
+          "readmeCharacters": 1328,
+          "specificKeywords": [
+            "cms",
+            "forms",
+            "kunstmaan"
+          ],
+          "centroidCosine": 0.837412320868574,
+          "silhouette": -0.05023746514887017
+        },
+        {
+          "name": "teckhouse/analytics-bundle",
+          "description": "Extensible stats system for your site.",
+          "keywords": [
+            "analytics",
+            "stats",
+            "timeline",
+            "graphs",
+            "analysis",
+            "leaderboard",
+            "status",
+            "stat",
+            "web stats",
+            "counter",
+            "gauges",
+            "bars",
+            "boxes",
+            "pins",
+            "funnles",
+            "completition"
+          ],
+          "readmeCharacters": 1069,
+          "specificKeywords": [
+            "analysis",
+            "analytics",
+            "bars",
+            "boxes",
+            "completition",
+            "counter",
+            "funnles",
+            "gauges",
+            "graphs",
+            "leaderboard",
+            "pins",
+            "stat",
+            "stats",
+            "status",
+            "timeline",
+            "web stats"
+          ],
+          "centroidCosine": 0.8305426081043767,
+          "silhouette": -0.027517431484143165
+        },
+        {
+          "name": "kematjaya/crud-maker-core",
+          "description": "Shared renderer base class used by kematjaya/crud-maker-twig-bundle and kematjaya/crud-maker-api-bundle",
+          "keywords": [],
+          "readmeCharacters": 854,
+          "specificKeywords": [],
+          "centroidCosine": 0.8298571262499507,
+          "silhouette": -0.028440581890407053
+        },
+        {
+          "name": "omnibridge/twig",
+          "description": "The Twig side of omnibridge: the contract a page rendered with Twig asks of any framework (path, url, asset, trans - omnisense/omnibridge's Urls and Translations), the Twig extension that provides it where the framework does not, and helpers.",
+          "keywords": [],
+          "readmeCharacters": 2159,
+          "specificKeywords": [],
+          "centroidCosine": 0.8260580437543832,
+          "silhouette": -0.09411155371638863
+        },
+        {
+          "name": "judim/simple-search-bundle",
+          "description": "",
+          "keywords": [],
+          "readmeCharacters": 451,
+          "specificKeywords": [],
+          "centroidCosine": 0.823471126753671,
+          "silhouette": -0.0834570289428431
+        },
+        {
+          "name": "tps/util-bundle",
+          "description": "generate phpunit-templates for services, including mocked dependencies",
+          "keywords": [],
+          "readmeCharacters": 3177,
+          "specificKeywords": [],
+          "centroidCosine": 0.8216181955570074,
+          "silhouette": -0.08315806206090795
+        },
+        {
+          "name": "gollumsf/user-bundle",
+          "description": "Very simple and overridable user bundle",
+          "keywords": [
+            "user",
+            "Simple",
+            "gollumsf",
+            "overridable"
+          ],
+          "readmeCharacters": 3628,
+          "specificKeywords": [
+            "gollumsf",
+            "overridable",
+            "simple",
+            "user"
+          ],
+          "centroidCosine": 0.8205414582386115,
+          "silhouette": -0.05642529566531022
+        },
+        {
+          "name": "eo/keyclient-bundle",
+          "description": "KeyClient provider for JMSPaymentCoreBundle",
+          "keywords": [
+            "keyclient",
+            "cartasi"
+          ],
+          "readmeCharacters": 909,
+          "specificKeywords": [
+            "cartasi",
+            "keyclient"
+          ],
+          "centroidCosine": 0.8188440266203363,
+          "silhouette": -0.05238914427942376
+        },
+        {
+          "name": "pixelavengers/extra-validator-bundle",
+          "description": "This bundle provides some useful extra validators",
+          "keywords": [
+            "validators"
+          ],
+          "readmeCharacters": 1696,
+          "specificKeywords": [
+            "validators"
+          ],
+          "centroidCosine": 0.8113265405956056,
+          "silhouette": -0.027368410622043378
+        },
+        {
+          "name": "minimaloriginal/menu-bundle",
+          "description": "The menu bundle for Minimal",
+          "keywords": [
+            "menu bundle"
+          ],
+          "readmeCharacters": 362,
+          "specificKeywords": [
+            "menu bundle"
+          ],
+          "centroidCosine": 0.8090712831028567,
+          "silhouette": -0.03442759980314278
+        },
+        {
+          "name": "hasantayyar/url-shortener-bundle",
+          "description": "",
+          "keywords": [
+            "symfony",
+            "url",
+            "short url",
+            "url shortener"
+          ],
+          "readmeCharacters": 669,
+          "specificKeywords": [
+            "short url",
+            "url",
+            "url shortener"
+          ],
+          "centroidCosine": 0.8085627543729913,
+          "silhouette": -0.0187722429363868
+        },
+        {
+          "name": "teltek/pmk2-timed-pub-decisions-bundle",
+          "description": "Bundle for PuMuKIT to configure the timed publication decisions",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "videos",
+            "pumukit",
+            "teltek"
+          ],
+          "readmeCharacters": 539,
+          "specificKeywords": [
+            "pumukit",
+            "teltek",
+            "videos"
+          ],
+          "centroidCosine": 0.808181445281734,
+          "silhouette": -0.051143757196575206
+        },
+        {
+          "name": "kunstmaan/cache-bundle",
+          "description": "The Kunstmaan Cache bundle supplies your project with the ability to ban certain pages from Varnish from within KunstmaanCMS",
+          "keywords": [
+            "admin",
+            "cms",
+            "varnish",
+            "kunstmaan"
+          ],
+          "readmeCharacters": 1582,
+          "specificKeywords": [
+            "admin",
+            "cms",
+            "kunstmaan",
+            "varnish"
+          ],
+          "centroidCosine": 0.8059133457562173,
+          "silhouette": -0.07426272375316938
+        },
+        {
+          "name": "api-platform/api-pack",
+          "description": "A pack for API Platform",
+          "keywords": [],
+          "readmeCharacters": 463,
+          "specificKeywords": [],
+          "centroidCosine": 0.8001780439951405,
+          "silhouette": -0.06274399590399976
+        },
+        {
+          "name": "libre-informatique/seed-batch-bundle",
+          "description": "Seed batch Bundle for Symfony",
+          "keywords": [
+            "symfony",
+            "sonata",
+            "e-venement",
+            "libio"
+          ],
+          "readmeCharacters": 1037,
+          "specificKeywords": [
+            "e-venement",
+            "libio",
+            "sonata"
+          ],
+          "centroidCosine": 0.7979287857182846,
+          "silhouette": -0.047548838972152535
+        },
+        {
+          "name": "querdos/qfile-encryption-bundle",
+          "description": "A bundle for file encryption under symfony",
+          "keywords": [
+            "security encryption cryptography file doctrine database symfony"
+          ],
+          "readmeCharacters": 1610,
+          "specificKeywords": [
+            "security encryption cryptography file doctrine database symfony"
+          ],
+          "centroidCosine": 0.7957851090485829,
+          "silhouette": -0.058260336871752624
+        },
+        {
+          "name": "ufo-tech/packages",
+          "description": "Configuration and runtime tools for UFO-Tech family libraries",
+          "keywords": [
+            "symfony",
+            "flex",
+            "recipes",
+            "ufo-tech"
+          ],
+          "readmeCharacters": 1098,
+          "specificKeywords": [
+            "flex",
+            "recipes",
+            "ufo-tech"
+          ],
+          "centroidCosine": 0.7938661852470187,
+          "silhouette": -0.03386554281550572
+        },
+        {
+          "name": "simettric/gaufrette-to-liip-imagine-bundle",
+          "description": "",
+          "keywords": [],
+          "readmeCharacters": 3666,
+          "specificKeywords": [],
+          "centroidCosine": 0.7923629415506769,
+          "silhouette": -0.00641219809324548
+        },
+        {
+          "name": "trinity/utils",
+          "description": "Trinity Utils bundle",
+          "keywords": [],
+          "readmeCharacters": 322,
+          "specificKeywords": [],
+          "centroidCosine": 0.7881311690986069,
+          "silhouette": 0.03745091715062087
+        },
+        {
+          "name": "thibautg16/eedomus-bundle",
+          "description": "Symfony Eedomus Bundle",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "domotique",
+            "eedomus"
+          ],
+          "readmeCharacters": 1198,
+          "specificKeywords": [
+            "domotique",
+            "eedomus"
+          ],
+          "centroidCosine": 0.7872624693795621,
+          "silhouette": -0.04624821014641692
+        },
+        {
+          "name": "21torr/snail",
+          "description": "Helpers for using snails (slugs with special format)",
+          "keywords": [],
+          "readmeCharacters": 164,
+          "specificKeywords": [],
+          "centroidCosine": 0.785980236289695,
+          "silhouette": -0.025963948106586764
+        },
+        {
+          "name": "okto/media-bundle",
+          "description": "OKTO TVs implementation of the OKTOLAB MediaBundle",
+          "keywords": [
+            "media",
+            "restful"
+          ],
+          "readmeCharacters": 705,
+          "specificKeywords": [
+            "media",
+            "restful"
+          ],
+          "centroidCosine": 0.7843965994817048,
+          "silhouette": -0.04515725346389599
+        },
+        {
+          "name": "ibrows/sylius-shop-bundle",
+          "description": "Ibrows Sylius Shop Bundle integration",
+          "keywords": [
+            "shop",
+            "sylius",
+            "ibrows"
+          ],
+          "readmeCharacters": 922,
+          "specificKeywords": [
+            "ibrows",
+            "shop",
+            "sylius"
+          ],
+          "centroidCosine": 0.7842441188713867,
+          "silhouette": 0.0012018503784246629
+        },
+        {
+          "name": "vakata/jstree",
+          "description": "jsTree is jquery plugin, that provides interactive trees.",
+          "keywords": [],
+          "readmeCharacters": 1797,
+          "specificKeywords": [],
+          "centroidCosine": 0.7824350878575013,
+          "silhouette": -0.030155122200760363
+        },
+        {
+          "name": "aimeos/aimeos-core",
+          "description": "Full-featured e-commerce components for high performance online shops",
+          "keywords": [
+            "shop",
+            "ecommerce",
+            "marketplace",
+            "portal",
+            "b2b",
+            "B2C",
+            "gigacommerce"
+          ],
+          "readmeCharacters": 2598,
+          "specificKeywords": [
+            "b2b",
+            "b2c",
+            "ecommerce",
+            "gigacommerce",
+            "marketplace",
+            "portal",
+            "shop"
+          ],
+          "centroidCosine": 0.7791297454469228,
+          "silhouette": -0.049143160745364386
+        },
+        {
+          "name": "klesk/slider-bundle",
+          "description": "Slider bundle",
+          "keywords": [
+            "image",
+            "Symfony2",
+            "slider"
+          ],
+          "readmeCharacters": 1417,
+          "specificKeywords": [
+            "image",
+            "slider"
+          ],
+          "centroidCosine": 0.770204190955997,
+          "silhouette": -0.00984949286040768
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "size": 90,
+      "descriptionTerms": [
+        "api",
+        "doctrine",
+        "simple",
+        "sdk",
+        "bridge",
+        "orm",
+        "implementation",
+        "akeneo"
+      ],
+      "meanSilhouette": 0.07627191378332158,
+      "medianReadmeCharacters": 4717.5,
+      "meanPairCosine": 0.7129716265470774,
+      "noKeywords": 26,
+      "noSpecificKeywords": 27,
+      "topKeywords": [
+        [
+          "api",
+          4
+        ],
+        [
+          "database",
+          4
+        ],
+        [
+          "plugin",
+          3
+        ],
+        [
+          "rest",
+          3
+        ],
+        [
+          "orm",
+          3
+        ],
+        [
+          "postgresql",
+          3
+        ],
+        [
+          "parser",
+          3
+        ],
+        [
+          "ai",
+          2
+        ],
+        [
+          "chat",
+          2
+        ],
+        [
+          "symfony-ux",
+          2
+        ]
+      ],
+      "members": [
+        {
+          "name": "bytes-commerce/zabbix-api",
+          "description": "A PHP library for interacting with the Zabbix API using JSON-RPC 2.0",
+          "keywords": [],
+          "readmeCharacters": 17612,
+          "specificKeywords": [],
+          "centroidCosine": 0.9062639210968497,
+          "silhouette": 0.14897151177625087
+        },
+        {
+          "name": "morket/hmvc-bundle",
+          "description": "Symfony2 Bundle providing a fast Hierarchical Model View Controller (HMVC) solution utilizing Symfony's dispatch flow",
+          "keywords": [
+            "rest",
+            "rad",
+            "hmvc",
+            "pac"
+          ],
+          "readmeCharacters": 15446,
+          "specificKeywords": [
+            "hmvc",
+            "pac",
+            "rad",
+            "rest"
+          ],
+          "centroidCosine": 0.9028017911221256,
+          "silhouette": 0.10840232069596335
+        },
+        {
+          "name": "tangoman/front-bundle",
+          "description": "Symfony Front Twig Extension Bundle",
+          "keywords": [
+            "symfony",
+            "twig",
+            "bootstrap",
+            "bundle",
+            "extension",
+            "Forms",
+            "service",
+            "responsive",
+            "list",
+            "front",
+            "navbar",
+            "buttons",
+            "menus",
+            "back office",
+            "ordered",
+            "searchable",
+            "TangoMan",
+            "Paginated"
+          ],
+          "readmeCharacters": 16385,
+          "specificKeywords": [
+            "back office",
+            "bootstrap",
+            "buttons",
+            "forms",
+            "front",
+            "list",
+            "menus",
+            "navbar",
+            "ordered",
+            "paginated",
+            "responsive",
+            "searchable",
+            "service",
+            "tangoman",
+            "twig"
+          ],
+          "centroidCosine": 0.9019207922124246,
+          "silhouette": 0.12018476982769889
+        },
+        {
+          "name": "fedale/access-control-voter-bundle",
+          "description": "Symfony RBAC bundle inspired by Yii2 (auth_item / auth_item_child / auth_assignment / auth_rule): roles, permissions, hierarchy, per-user assignments and contextual rules, with a can() API and DB-driven role hierarchy",
+          "keywords": [
+            "symfony",
+            "authorization",
+            "bundle",
+            "roles",
+            "permissions",
+            "rbac",
+            "yii2",
+            "voter",
+            "is-granted"
+          ],
+          "readmeCharacters": 13845,
+          "specificKeywords": [
+            "authorization",
+            "is-granted",
+            "permissions",
+            "rbac",
+            "roles",
+            "voter",
+            "yii2"
+          ],
+          "centroidCosine": 0.9015450856850826,
+          "silhouette": 0.1462094412800734
+        },
+        {
+          "name": "eerzho/opentelemetry-auto-class",
+          "description": "Trace what your methods received, returned, and threw — without writing a single span. No framework required.",
+          "keywords": [
+            "monitoring",
+            "traces",
+            "apm",
+            "telemetry",
+            "instrumentation",
+            "tracing",
+            "distributed-tracing",
+            "observability",
+            "php-attributes",
+            "opentelemetry",
+            "otel",
+            "spans",
+            "auto-instrumentation"
+          ],
+          "readmeCharacters": 8733,
+          "specificKeywords": [
+            "apm",
+            "auto-instrumentation",
+            "distributed-tracing",
+            "instrumentation",
+            "monitoring",
+            "observability",
+            "opentelemetry",
+            "otel",
+            "php-attributes",
+            "spans",
+            "telemetry",
+            "traces",
+            "tracing"
+          ],
+          "centroidCosine": 0.8987172712288993,
+          "silhouette": 0.20548181015186576
+        },
+        {
+          "name": "likeuntomurphy/serverless-ogm",
+          "description": "PHP DynamoDB Object Graph Mapper",
+          "keywords": [],
+          "readmeCharacters": 11430,
+          "specificKeywords": [],
+          "centroidCosine": 0.898514801412049,
+          "silhouette": 0.19685477407920396
+        },
+        {
+          "name": "stejac/guarded-chat-bundle",
+          "description": "Guardrails for public AI chats in Symfony apps: prompt versioning, injection prefilter, kill switch, budget and rate limits, signed sessions, retention. Built on Symfony AI.",
+          "keywords": [
+            "symfony",
+            "chat",
+            "ai",
+            "symfony-bundle",
+            "rate-limit",
+            "symfony-ux",
+            "llm",
+            "guardrails"
+          ],
+          "readmeCharacters": 13191,
+          "specificKeywords": [
+            "ai",
+            "chat",
+            "guardrails",
+            "llm",
+            "rate-limit",
+            "symfony-ux"
+          ],
+          "centroidCosine": 0.897888685372605,
+          "silhouette": 0.12999399514051638
+        },
+        {
+          "name": "conserto/pomm-bundle",
+          "description": "The Symfony bundle for Pomm",
+          "keywords": [
+            "database",
+            "orm",
+            "symfony",
+            "postgresql",
+            "pomm"
+          ],
+          "readmeCharacters": 5027,
+          "specificKeywords": [
+            "database",
+            "orm",
+            "pomm",
+            "postgresql"
+          ],
+          "centroidCosine": 0.895166083573601,
+          "silhouette": 0.054142378648778494
+        },
+        {
+          "name": "indexnowkit/console",
+          "description": "Console commands for indexnowkit: the check, config, submit, submit-<subject>, explain and key:generate commands of every framework adapter as symfony/console classes, their runners, and the one declaration of their arguments and options",
+          "keywords": [
+            "cli",
+            "console",
+            "seo",
+            "symfony-console",
+            "indexnow"
+          ],
+          "readmeCharacters": 11086,
+          "specificKeywords": [
+            "cli",
+            "console",
+            "indexnow",
+            "seo",
+            "symfony-console"
+          ],
+          "centroidCosine": 0.8950402099519466,
+          "silhouette": 0.07705569358830622
+        },
+        {
+          "name": "shedeza/sybase-orm",
+          "description": "Pure PHP ORM for Sybase ASE — framework-agnostic",
+          "keywords": [],
+          "readmeCharacters": 14551,
+          "specificKeywords": [],
+          "centroidCosine": 0.8943963954580675,
+          "silhouette": 0.16695316309372826
+        },
+        {
+          "name": "anatoliynyatin/far-symfony2-jquery-upload",
+          "description": "Integrates JqueryUpload into Symfony2 with OneUpFlySystem",
+          "keywords": [
+            "Bundle JqueryUpload FlySystem Symfony2"
+          ],
+          "readmeCharacters": 7526,
+          "specificKeywords": [
+            "bundle jqueryupload flysystem symfony2"
+          ],
+          "centroidCosine": 0.8942563770458023,
+          "silhouette": 0.017919024167935713
+        },
+        {
+          "name": "ventureleap/leap-one-rating-sdk",
+          "description": "",
+          "keywords": [
+            "php",
+            "api",
+            "sdk",
+            "swagger"
+          ],
+          "readmeCharacters": 9483,
+          "specificKeywords": [
+            "api",
+            "sdk",
+            "swagger"
+          ],
+          "centroidCosine": 0.8922900958683688,
+          "silhouette": 0.12164683656504845
+        },
+        {
+          "name": "simplethings/entity-audit-bundle",
+          "description": "Audit for Doctrine Entities",
+          "keywords": [
+            "database",
+            "persistence",
+            "Audit"
+          ],
+          "readmeCharacters": 10054,
+          "specificKeywords": [
+            "audit",
+            "database",
+            "persistence"
+          ],
+          "centroidCosine": 0.8917615798879335,
+          "silhouette": 0.089679543024897
+        },
+        {
+          "name": "alya/symfony-inspector-mcp",
+          "description": "MCP Server for Symfony Introspection",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "inspector",
+            "mcp"
+          ],
+          "readmeCharacters": 4335,
+          "specificKeywords": [
+            "inspector",
+            "mcp"
+          ],
+          "centroidCosine": 0.8909929422568421,
+          "silhouette": -0.02120267492738302
+        },
+        {
+          "name": "arxy/dataloader-bundle",
+          "description": "DataLoader Symfony bundle implementation.",
+          "keywords": [
+            "caching",
+            "Batching",
+            "dataLoader"
+          ],
+          "readmeCharacters": 4900,
+          "specificKeywords": [
+            "batching",
+            "caching",
+            "dataloader"
+          ],
+          "centroidCosine": 0.8900298859770984,
+          "silhouette": -0.014593541360253849
+        },
+        {
+          "name": "softavis/turnstile",
+          "description": "Framework-independent server-side Cloudflare Turnstile verification for PHP",
+          "keywords": [],
+          "readmeCharacters": 9031,
+          "specificKeywords": [],
+          "centroidCosine": 0.8877271660479167,
+          "silhouette": 0.1237342642107298
+        },
+        {
+          "name": "melbahja/seo",
+          "description": "SEO library for PHP is a simple PHP library to help developers 🍻 do better on-page SEO optimizations.",
+          "keywords": [
+            "seo",
+            "sitemaps",
+            "open graph",
+            "sitemap index",
+            "schema.org",
+            "meta tags",
+            "search engine optimization",
+            "sitemap.xml",
+            "twitter tags",
+            "php8",
+            "rich results",
+            "images sitemaps",
+            "video sitemaps",
+            "index sitemaps",
+            "news sitemaps"
+          ],
+          "readmeCharacters": 13263,
+          "specificKeywords": [
+            "images sitemaps",
+            "index sitemaps",
+            "meta tags",
+            "news sitemaps",
+            "open graph",
+            "rich results",
+            "schema.org",
+            "search engine optimization",
+            "seo",
+            "sitemap index",
+            "sitemap.xml",
+            "sitemaps",
+            "twitter tags",
+            "video sitemaps"
+          ],
+          "centroidCosine": 0.8851688445158699,
+          "silhouette": 0.16372748436161388
+        },
+        {
+          "name": "webalternatif/flysystem-dsn",
+          "description": "A set of factories to build Flysystem adapters from DSN (Data Source Name)",
+          "keywords": [
+            "filesystem",
+            "storage",
+            "adapter",
+            "dsn",
+            "Flysystem"
+          ],
+          "readmeCharacters": 15847,
+          "specificKeywords": [
+            "adapter",
+            "dsn",
+            "filesystem",
+            "flysystem",
+            "storage"
+          ],
+          "centroidCosine": 0.8850236718044281,
+          "silhouette": 0.07748195370535053
+        },
+        {
+          "name": "tbbc/rest-util",
+          "description": "Some useful classes for handling certain aspects of a REST(ful) API.",
+          "keywords": [
+            "rest",
+            "api",
+            "restful"
+          ],
+          "readmeCharacters": 4218,
+          "specificKeywords": [
+            "api",
+            "rest",
+            "restful"
+          ],
+          "centroidCosine": 0.8830436350920089,
+          "silhouette": 0.11483070073449653
+        },
+        {
+          "name": "chamber-orchestra/view-bundle",
+          "description": "Symfony bundle providing a typed, reusable view layer for building JSON API responses with automatic property binding and cache-warmed serialization",
+          "keywords": [
+            "symfony",
+            "json",
+            "serialization",
+            "view",
+            "view-model",
+            "symfony-bundle",
+            "rest-api",
+            "JSON-API",
+            "api-response",
+            "property-binding"
+          ],
+          "readmeCharacters": 19323,
+          "specificKeywords": [
+            "api-response",
+            "json",
+            "json-api",
+            "property-binding",
+            "rest-api",
+            "serialization",
+            "view",
+            "view-model"
+          ],
+          "centroidCosine": 0.8817929263343716,
+          "silhouette": 0.147569105855412
+        },
+        {
+          "name": "appaydin/pd-user",
+          "description": "Symfony Simple User Bundle",
+          "keywords": [
+            "account",
+            "user-management",
+            "symfony-user",
+            "pd-admin",
+            "pd-user"
+          ],
+          "readmeCharacters": 6400,
+          "specificKeywords": [
+            "account",
+            "pd-admin",
+            "pd-user",
+            "symfony-user",
+            "user-management"
+          ],
+          "centroidCosine": 0.8808149706482743,
+          "silhouette": 0.03146253715796932
+        },
+        {
+          "name": "prr/multi-asset-mapper-bundle",
+          "description": "This bundle extends the Symfony Asset Mapper component to allow managing multiple importmap files.",
+          "keywords": [
+            "symfony",
+            "bundle"
+          ],
+          "readmeCharacters": 5750,
+          "specificKeywords": [],
+          "centroidCosine": 0.8802670518515701,
+          "silhouette": 0.011484993180793332
+        },
+        {
+          "name": "acencyril/echo-bundle",
+          "description": "Emails the site owner at each important step of the funnel (signup, payment...), plus a morning digest of yesterday's counters, so the owner never has to open the admin.",
+          "keywords": [
+            "symfony",
+            "email",
+            "notifications",
+            "alerts",
+            "analytics",
+            "digest",
+            "owner",
+            "funnel"
+          ],
+          "readmeCharacters": 11025,
+          "specificKeywords": [
+            "alerts",
+            "analytics",
+            "digest",
+            "email",
+            "funnel",
+            "notifications",
+            "owner"
+          ],
+          "centroidCosine": 0.8771165329189246,
+          "silhouette": 0.177781593494616
+        },
+        {
+          "name": "wundii/data-mapper",
+          "description": "Modern and fast object mapper for PHP 8.2+. Strict types. Converts CSV, JSON, XML, YAML, NEON, arrays, and objects to PHP objects.",
+          "keywords": [
+            "yaml",
+            "json",
+            "xml",
+            "deserialization",
+            "csv",
+            "array",
+            "object",
+            "datamapper",
+            "neon",
+            "mapper",
+            "deserialize"
+          ],
+          "readmeCharacters": 4740,
+          "specificKeywords": [
+            "array",
+            "csv",
+            "datamapper",
+            "deserialization",
+            "deserialize",
+            "json",
+            "mapper",
+            "neon",
+            "object",
+            "xml",
+            "yaml"
+          ],
+          "centroidCosine": 0.8767755002171739,
+          "silhouette": 0.13006422871587253
+        },
+        {
+          "name": "minishlink/web-push-bundle",
+          "description": "Symfony Bundle around the WebPush library",
+          "keywords": [
+            "web",
+            "notifications",
+            "push",
+            "WebPush"
+          ],
+          "readmeCharacters": 2820,
+          "specificKeywords": [
+            "notifications",
+            "push",
+            "web",
+            "webpush"
+          ],
+          "centroidCosine": 0.8760569157172717,
+          "silhouette": -0.0021541822864346344
+        },
+        {
+          "name": "tacticmedia/rds-auth-middleware",
+          "description": "Doctrine DBAL driver middleware for Amazon RDS: IAM token authentication and master-password refresh from Secrets Manager.",
+          "keywords": [
+            "dbal",
+            "doctrine",
+            "postgresql",
+            "aws",
+            "iam",
+            "rds",
+            "secrets-manager"
+          ],
+          "readmeCharacters": 5126,
+          "specificKeywords": [
+            "aws",
+            "dbal",
+            "doctrine",
+            "iam",
+            "postgresql",
+            "rds",
+            "secrets-manager"
+          ],
+          "centroidCosine": 0.8752394313963563,
+          "silhouette": 0.07497460515690274
+        },
+        {
+          "name": "huluti/doctrine-relations-analyser",
+          "description": "A Symfony bundle that provides tools for analyzing Doctrine relationships",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "doctrine",
+            "relations"
+          ],
+          "readmeCharacters": 4766,
+          "specificKeywords": [
+            "doctrine",
+            "relations"
+          ],
+          "centroidCosine": 0.874707242855998,
+          "silhouette": 0.10326562681113148
+        },
+        {
+          "name": "symkit/redirect-bundle",
+          "description": "This bundle allows you to manage internal and external redirects directly from your database",
+          "keywords": [],
+          "readmeCharacters": 4976,
+          "specificKeywords": [],
+          "centroidCosine": 0.8738970125988875,
+          "silhouette": 0.010116053160763134
+        },
+        {
+          "name": "common-gateway/xxllnc-zgw-bundle",
+          "description": "A package for a symfony flex bundle containing functionality for mapping ZGW api standard to XXLLNC api",
+          "keywords": [
+            "symfony",
+            "gateway",
+            "common",
+            "conduction",
+            "commongateway",
+            "common-gateway-plugin",
+            "zgw"
+          ],
+          "readmeCharacters": 11449,
+          "specificKeywords": [
+            "common",
+            "common-gateway-plugin",
+            "commongateway",
+            "conduction",
+            "gateway",
+            "zgw"
+          ],
+          "centroidCosine": 0.8734266382603134,
+          "silhouette": 0.043961315530956696
+        },
+        {
+          "name": "janalis/collaborate",
+          "description": "Live collaboration for Symfony admin forms: shared drafts, presence and cursors over Mercure, with an EasyAdmin adapter.",
+          "keywords": [
+            "CKEditor",
+            "symfony-bundle",
+            "collaboration",
+            "easyadmin",
+            "presence",
+            "mercure",
+            "cursors"
+          ],
+          "readmeCharacters": 5099,
+          "specificKeywords": [
+            "ckeditor",
+            "collaboration",
+            "cursors",
+            "easyadmin",
+            "mercure",
+            "presence"
+          ],
+          "centroidCosine": 0.8721900848186828,
+          "silhouette": 0.031189380023649384
+        },
+        {
+          "name": "ucscode/easyadmin-dependency-field-resolver",
+          "description": "A state-aware dependency resolver for EasyAdmin fields that handles complex field dependencies via a redirect-and-bridge mechanism to prevent Symfony validation type mismatches.",
+          "keywords": [],
+          "readmeCharacters": 10114,
+          "specificKeywords": [],
+          "centroidCosine": 0.871207528760825,
+          "silhouette": 0.17814011791222342
+        },
+        {
+          "name": "inuar/custom-entity-bundle",
+          "description": "Akeneo PIM Custom entity bundle for Akeneo 7",
+          "keywords": [
+            "ecommerce",
+            "integration",
+            "PIM",
+            "akeneo",
+            "reference data"
+          ],
+          "readmeCharacters": 3720,
+          "specificKeywords": [
+            "akeneo",
+            "ecommerce",
+            "integration",
+            "pim",
+            "reference data"
+          ],
+          "centroidCosine": 0.8711898751089071,
+          "silhouette": 0.010616784186883835
+        },
+        {
+          "name": "pubnub/pubnub",
+          "description": "PubNub SDK for PHP. Publish/subscribe messaging over HTTP long-poll with server-assigned message ordering, channel occupancy via Here Now, and message history through Message Persistence.",
+          "keywords": [
+            "real-time",
+            "messaging",
+            "chat",
+            "realtime",
+            "pubnub",
+            "pubsub",
+            "publish-subscribe",
+            "presence",
+            "occupancy",
+            "message-ordering",
+            "message-history",
+            "long-poll"
+          ],
+          "readmeCharacters": 7696,
+          "specificKeywords": [
+            "chat",
+            "long-poll",
+            "message-history",
+            "message-ordering",
+            "messaging",
+            "occupancy",
+            "presence",
+            "publish-subscribe",
+            "pubnub",
+            "pubsub",
+            "real-time",
+            "realtime"
+          ],
+          "centroidCosine": 0.8709662158261836,
+          "silhouette": 0.06690664077111948
+        },
+        {
+          "name": "tecnick.com/tcpdf",
+          "description": "Deprecated legacy PDF engine for PHP. Use instead tecnickcom/tc-lib-pdf.",
+          "keywords": [
+            "pdf",
+            "TCPDF",
+            "qrcode",
+            "PDFD32000-2008",
+            "datamatrix",
+            "pdf417",
+            "barcodes"
+          ],
+          "readmeCharacters": 15946,
+          "specificKeywords": [
+            "barcodes",
+            "datamatrix",
+            "pdf",
+            "pdf417",
+            "pdfd32000-2008",
+            "qrcode",
+            "tcpdf"
+          ],
+          "centroidCosine": 0.8706193129312312,
+          "silhouette": 0.1314902840862765
+        },
+        {
+          "name": "unsplash/unsplash",
+          "description": "Wrapper to access the Unsplash API and photo library",
+          "keywords": [],
+          "readmeCharacters": 16962,
+          "specificKeywords": [],
+          "centroidCosine": 0.8698166416202436,
+          "silhouette": 0.17656089716913692
+        },
+        {
+          "name": "akyos/ux-native-cli",
+          "description": "Console commands to scaffold and build Hotwire Native shells for Symfony apps",
+          "keywords": [
+            "symfony-ux"
+          ],
+          "readmeCharacters": 33488,
+          "specificKeywords": [
+            "symfony-ux"
+          ],
+          "centroidCosine": 0.8695987274934056,
+          "silhouette": 0.08357972253952979
+        },
+        {
+          "name": "namnv609/php-onesignal-sdk",
+          "description": "PHP SDK for OneSignal RESTful API",
+          "keywords": [],
+          "readmeCharacters": 5299,
+          "specificKeywords": [],
+          "centroidCosine": 0.8684877423680201,
+          "silhouette": 0.11766666358192934
+        },
+        {
+          "name": "nfephp-org/sped-nfe",
+          "description": "API para geração e comunicação da NFe e NFCe com as SEFAZ autorizadoras.",
+          "keywords": [
+            "nfe",
+            "nfephp",
+            "nfce",
+            "sped"
+          ],
+          "readmeCharacters": 8580,
+          "specificKeywords": [
+            "nfce",
+            "nfe",
+            "nfephp",
+            "sped"
+          ],
+          "centroidCosine": 0.8679442785570685,
+          "silhouette": 0.06299435509017762
+        },
+        {
+          "name": "idci/simple-metadata-bundle",
+          "description": "Symfony SimpleMetadataBundle",
+          "keywords": [
+            "metadata",
+            "form"
+          ],
+          "readmeCharacters": 4332,
+          "specificKeywords": [
+            "form",
+            "metadata"
+          ],
+          "centroidCosine": 0.866102021150378,
+          "silhouette": -0.006736814362874903
+        },
+        {
+          "name": "errogaht/wavespeed-ai-bundle",
+          "description": "Symfony integration for WaveSpeedAI video generation, live model capabilities, pricing, uploads, predictions and verified webhooks.",
+          "keywords": [
+            "symfony",
+            "ai",
+            "symfony-bundle",
+            "video-generation",
+            "text-to-video",
+            "image-to-video",
+            "wavespeed"
+          ],
+          "readmeCharacters": 7413,
+          "specificKeywords": [
+            "ai",
+            "image-to-video",
+            "text-to-video",
+            "video-generation",
+            "wavespeed"
+          ],
+          "centroidCosine": 0.8657870759755569,
+          "silhouette": 0.13364507866258418
+        },
+        {
+          "name": "nacholibre/richuploader-bundle",
+          "description": "",
+          "keywords": [],
+          "readmeCharacters": 4545,
+          "specificKeywords": [],
+          "centroidCosine": 0.8655700161660216,
+          "silhouette": -0.006231095956746229
+        },
+        {
+          "name": "jeremeamia/superclosure",
+          "description": "Serialize Closure objects, including their context and binding",
+          "keywords": [
+            "serialize",
+            "parser",
+            "function",
+            "closure",
+            "tokenizer",
+            "serializable",
+            "lambda"
+          ],
+          "readmeCharacters": 11678,
+          "specificKeywords": [
+            "closure",
+            "function",
+            "lambda",
+            "parser",
+            "serializable",
+            "serialize",
+            "tokenizer"
+          ],
+          "centroidCosine": 0.8631652711532001,
+          "silhouette": 0.11582734142215247
+        },
+        {
+          "name": "symfony/key-management",
+          "description": "Abstracts Key Management Systems (AWS KMS, Azure Key Vault, Google Cloud KMS, HashiCorp Vault Transit, Scaleway Key Manager, KMIP, ...) behind a single interface",
+          "keywords": [
+            "encryption",
+            "secrets",
+            "vault",
+            "kms",
+            "key management"
+          ],
+          "readmeCharacters": 7859,
+          "specificKeywords": [
+            "encryption",
+            "key management",
+            "kms",
+            "secrets",
+            "vault"
+          ],
+          "centroidCosine": 0.8617190746465642,
+          "silhouette": 0.14890563356609465
+        },
+        {
+          "name": "php-solution/nelmio-apidoc-yaml-bundle",
+          "description": "This bundle provides an integration of NelmioApiDocBundle with yaml extractor",
+          "keywords": [],
+          "readmeCharacters": 3372,
+          "specificKeywords": [],
+          "centroidCosine": 0.8603073217043276,
+          "silhouette": -0.01137604104015434
+        },
+        {
+          "name": "bentools/doctrine-changeset",
+          "description": "Doctrine UnitOfWork helpers to access changesets in an easy way.",
+          "keywords": [],
+          "readmeCharacters": 4549,
+          "specificKeywords": [],
+          "centroidCosine": 0.860038413247583,
+          "silhouette": 0.13619263825973996
+        },
+        {
+          "name": "ibrows/be-simple-deployment-bundle",
+          "description": "Symfony2 applications deployment made easy",
+          "keywords": [
+            "deploy",
+            "deployment",
+            "ibrows"
+          ],
+          "readmeCharacters": 5717,
+          "specificKeywords": [
+            "deploy",
+            "deployment",
+            "ibrows"
+          ],
+          "centroidCosine": 0.8576798770064051,
+          "silhouette": -0.01399651802544049
+        },
+        {
+          "name": "ruano_a/selective-test-isolation-bundle",
+          "description": "A Symfony bundle providing a way to simply rollback the database if an annotation is present on test methods.",
+          "keywords": [],
+          "readmeCharacters": 2060,
+          "specificKeywords": [],
+          "centroidCosine": 0.8566539711501291,
+          "silhouette": 0.01886954935490966
+        },
+        {
+          "name": "copiaincolla/metatags-bundle",
+          "description": "HTML Meta Tags management.",
+          "keywords": [
+            "html",
+            "tag",
+            "meta",
+            "metatag"
+          ],
+          "readmeCharacters": 5936,
+          "specificKeywords": [
+            "html",
+            "meta",
+            "metatag",
+            "tag"
+          ],
+          "centroidCosine": 0.8550957643765509,
+          "silhouette": 0.04533363620083717
+        },
+        {
+          "name": "setono/doctrine-orm-batcher",
+          "description": "A library for processing large collections in Doctrine",
+          "keywords": [],
+          "readmeCharacters": 7533,
+          "specificKeywords": [],
+          "centroidCosine": 0.8550855836991669,
+          "silhouette": 0.14771273107436256
+        },
+        {
+          "name": "locaine/lcn-image-uploader-bundle",
+          "description": "Easy ajax image file uploads for Symfony2",
+          "keywords": [
+            "Symfony2",
+            "ajax",
+            "Image upload",
+            "file upload"
+          ],
+          "readmeCharacters": 11750,
+          "specificKeywords": [
+            "ajax",
+            "file upload",
+            "image upload"
+          ],
+          "centroidCosine": 0.8510316824348942,
+          "silhouette": 0.06331699204451967
+        },
+        {
+          "name": "mejdoubimeriem/wcs",
+          "description": "The Websphere Commerce Connector for Akeneo",
+          "keywords": [
+            "PIM",
+            "akeneo",
+            "wcs"
+          ],
+          "readmeCharacters": 2407,
+          "specificKeywords": [
+            "akeneo",
+            "pim",
+            "wcs"
+          ],
+          "centroidCosine": 0.8478673865926871,
+          "silhouette": 0.06172089019043934
+        },
+        {
+          "name": "anh/taggable-bundle",
+          "description": "Taggable symfony bundle",
+          "keywords": [],
+          "readmeCharacters": 2693,
+          "specificKeywords": [],
+          "centroidCosine": 0.8478606468500837,
+          "silhouette": 0.029498841121900213
+        },
+        {
+          "name": "stetodd/stripe-gateway-bundle",
+          "description": "Stripe implementation of stetodd/payment-gateway as a Symfony bundle",
+          "keywords": [],
+          "readmeCharacters": 5267,
+          "specificKeywords": [],
+          "centroidCosine": 0.847470346529917,
+          "silhouette": 0.10693902131839787
+        },
+        {
+          "name": "webchemistry/invoice",
+          "description": "Library for easily and quickly creating invoices for customers.",
+          "keywords": [
+            "invoice",
+            "contributte"
+          ],
+          "readmeCharacters": 2477,
+          "specificKeywords": [
+            "contributte",
+            "invoice"
+          ],
+          "centroidCosine": 0.8469197808777764,
+          "silhouette": 0.10779821201394223
+        },
+        {
+          "name": "sithous/netsuitebundle",
+          "description": "Provides NetSuite PHPToolkit API inside your Symfony2 application",
+          "keywords": [
+            "symfony",
+            "Symfony2",
+            "api",
+            "netsuite",
+            "phptoolkit"
+          ],
+          "readmeCharacters": 2719,
+          "specificKeywords": [
+            "api",
+            "netsuite",
+            "phptoolkit"
+          ],
+          "centroidCosine": 0.8420487583900322,
+          "silhouette": -0.02582463967052187
+        },
+        {
+          "name": "georgebent/mongodb-migrations-bundle",
+          "description": "Symfony bundle for MongoDB migrations",
+          "keywords": [],
+          "readmeCharacters": 3540,
+          "specificKeywords": [],
+          "centroidCosine": 0.8419900236560138,
+          "silhouette": 0.03870741635919642
+        },
+        {
+          "name": "netliva/filetype",
+          "description": "Netliva File Type",
+          "keywords": [],
+          "readmeCharacters": 3958,
+          "specificKeywords": [],
+          "centroidCosine": 0.8400734168851846,
+          "silhouette": -0.0025019109000326365
+        },
+        {
+          "name": "pyrrah/twemoji",
+          "description": "The simple way to use Twitter Emoji (Twemoji) for Symfony.",
+          "keywords": [
+            "symfony",
+            "emoji",
+            "twemoji",
+            "twemoji symfony"
+          ],
+          "readmeCharacters": 2937,
+          "specificKeywords": [
+            "emoji",
+            "twemoji",
+            "twemoji symfony"
+          ],
+          "centroidCosine": 0.8393034045043577,
+          "silhouette": 0.07011961474146751
+        },
+        {
+          "name": "ys-tools/default-theme-configuration-bundle",
+          "description": "OroCommerce Default Theme Configuration Bundle",
+          "keywords": [
+            "configuration",
+            "theme",
+            "default",
+            "commerce",
+            "ORO"
+          ],
+          "readmeCharacters": 5949,
+          "specificKeywords": [
+            "commerce",
+            "configuration",
+            "default",
+            "oro",
+            "theme"
+          ],
+          "centroidCosine": 0.8377691092185522,
+          "silhouette": 0.06209717473693758
+        },
+        {
+          "name": "sprain/swiss-qr-bill",
+          "description": "A PHP library to create Swiss QR bills",
+          "keywords": [],
+          "readmeCharacters": 5798,
+          "specificKeywords": [],
+          "centroidCosine": 0.8372228392308625,
+          "silhouette": 0.09715208358778625
+        },
+        {
+          "name": "aymdev/messenger-azure-bundle",
+          "description": "Symfony Messenger bundle for Azure Service Bus",
+          "keywords": [],
+          "readmeCharacters": 4695,
+          "specificKeywords": [],
+          "centroidCosine": 0.836131902501473,
+          "silhouette": 0.022995560388482775
+        },
+        {
+          "name": "mjohnson/decoda",
+          "description": "A lightweight lexical string parser for BBCode styled markup.",
+          "keywords": [
+            "parser",
+            "filter",
+            "markup",
+            "HOOK",
+            "bbcode",
+            "decoda",
+            "lexer"
+          ],
+          "readmeCharacters": 2684,
+          "specificKeywords": [
+            "bbcode",
+            "decoda",
+            "filter",
+            "hook",
+            "lexer",
+            "markup",
+            "parser"
+          ],
+          "centroidCosine": 0.8329761747595722,
+          "silhouette": 0.13381276294207348
+        },
+        {
+          "name": "kaliop/ezfindsearchenginebundle",
+          "description": "Kaliop eZFind-Search-Engine Bundle",
+          "keywords": [
+            "solr",
+            "search",
+            "ezpublish",
+            "ezfind"
+          ],
+          "readmeCharacters": 6892,
+          "specificKeywords": [
+            "ezfind",
+            "ezpublish",
+            "search",
+            "solr"
+          ],
+          "centroidCosine": 0.8316011699291491,
+          "silhouette": 0.06887901912951702
+        },
+        {
+          "name": "dompat/stemmer",
+          "description": "A strictly-typed stemming library for PHP 8.3+. Supports Czech and English with Light and Aggressive modes.",
+          "keywords": [
+            "search",
+            "english",
+            "nlp",
+            "stemmer",
+            "indexing",
+            "czech",
+            "stemming"
+          ],
+          "readmeCharacters": 3737,
+          "specificKeywords": [
+            "czech",
+            "english",
+            "indexing",
+            "nlp",
+            "search",
+            "stemmer",
+            "stemming"
+          ],
+          "centroidCosine": 0.8298419574680479,
+          "silhouette": 0.14691517934751597
+        },
+        {
+          "name": "php-kit/composer-bower-plugin",
+          "description": "Composer plugin for installing Bower packages",
+          "keywords": [
+            "dependency",
+            "assets",
+            "plugin",
+            "composer",
+            "bower",
+            "packages",
+            "front-end"
+          ],
+          "readmeCharacters": 2375,
+          "specificKeywords": [
+            "assets",
+            "bower",
+            "dependency",
+            "front-end",
+            "packages",
+            "plugin"
+          ],
+          "centroidCosine": 0.8288173323831058,
+          "silhouette": 0.05007469164138648
+        },
+        {
+          "name": "bnza/spgsp",
+          "description": "Doctrine2 simple support for spatial types and functions",
+          "keywords": [
+            "geo",
+            "geometry",
+            "text",
+            "parser",
+            "geography",
+            "string",
+            "coordinate",
+            "lexer",
+            "spatial"
+          ],
+          "readmeCharacters": 359,
+          "specificKeywords": [
+            "coordinate",
+            "geo",
+            "geography",
+            "geometry",
+            "lexer",
+            "parser",
+            "spatial",
+            "string",
+            "text"
+          ],
+          "centroidCosine": 0.8279436972710448,
+          "silhouette": 0.08463955320575747
+        },
+        {
+          "name": "clickandmortar/akeneo-migrations-manager-bundle",
+          "description": "Akeneo Migrations manager bundle",
+          "keywords": [],
+          "readmeCharacters": 2880,
+          "specificKeywords": [],
+          "centroidCosine": 0.827900686745166,
+          "silhouette": 0.027554991975885745
+        },
+        {
+          "name": "conserto/pomm-model-manager",
+          "description": "PHP Object Model Manager for Postgresql",
+          "keywords": [
+            "database",
+            "orm",
+            "postgresql",
+            "pomm"
+          ],
+          "readmeCharacters": 2534,
+          "specificKeywords": [
+            "database",
+            "orm",
+            "pomm",
+            "postgresql"
+          ],
+          "centroidCosine": 0.8179622643947037,
+          "silhouette": 0.11209823213033662
+        },
+        {
+          "name": "team-blue/php-util",
+          "description": "PHP Utililty tools",
+          "keywords": [],
+          "readmeCharacters": 469,
+          "specificKeywords": [],
+          "centroidCosine": 0.8145210433350079,
+          "silhouette": 0.06310956822248978
+        },
+        {
+          "name": "vivutio/ticketing-module",
+          "description": "Ticketing for vivutio: tickets bought from airlines, ferries, coaches and railways for travellers, recorded by hand, issued, changed, refunded or voided, and billed to the traveller or a client.",
+          "keywords": [
+            "symfony",
+            "ticketing",
+            "airline",
+            "tourism",
+            "vivutio",
+            "travel-agency"
+          ],
+          "readmeCharacters": 3169,
+          "specificKeywords": [
+            "airline",
+            "ticketing",
+            "tourism",
+            "travel-agency",
+            "vivutio"
+          ],
+          "centroidCosine": 0.8093484444627488,
+          "silhouette": 0.06465550101656944
+        },
+        {
+          "name": "dragonwize/dw-log-bundle",
+          "description": "Highly opinionated log storage and viewer for Symfony in low traffic use cases.",
+          "keywords": [],
+          "readmeCharacters": 2496,
+          "specificKeywords": [],
+          "centroidCosine": 0.8054823947321104,
+          "silhouette": 0.03353807713307428
+        },
+        {
+          "name": "pygments/pygments",
+          "description": "Syntax highlighter bridge for pygments",
+          "keywords": [
+            "highlight",
+            "pygments",
+            "highlighter"
+          ],
+          "readmeCharacters": 441,
+          "specificKeywords": [
+            "highlight",
+            "highlighter",
+            "pygments"
+          ],
+          "centroidCosine": 0.80431859518369,
+          "silhouette": 0.10839324433695013
+        },
+        {
+          "name": "rekalogika/rekapager-symfony-bridge",
+          "description": "Common classes for Symfony integration.",
+          "keywords": [
+            "symfony",
+            "pager",
+            "pagination",
+            "api-platform",
+            "rekapager",
+            "keyset-pagination",
+            "offset-pagination"
+          ],
+          "readmeCharacters": 598,
+          "specificKeywords": [
+            "api-platform",
+            "keyset-pagination",
+            "offset-pagination",
+            "pager",
+            "pagination",
+            "rekapager"
+          ],
+          "centroidCosine": 0.8034194152481694,
+          "silhouette": 0.038193953349562215
+        },
+        {
+          "name": "sol/api-platform-mongo-bridge",
+          "description": "Make apiplatform mongo compatible with the same functionalities.",
+          "keywords": [
+            "mongodb",
+            "rest",
+            "api",
+            "api-platform"
+          ],
+          "readmeCharacters": 614,
+          "specificKeywords": [
+            "api",
+            "api-platform",
+            "mongodb",
+            "rest"
+          ],
+          "centroidCosine": 0.8010075827475125,
+          "silhouette": 0.006967272745743095
+        },
+        {
+          "name": "symfony/webhook",
+          "description": "Eases sending and consuming webhooks",
+          "keywords": [
+            "webhook"
+          ],
+          "readmeCharacters": 635,
+          "specificKeywords": [
+            "webhook"
+          ],
+          "centroidCosine": 0.7957880744808834,
+          "silhouette": 0.022184324472823373
+        },
+        {
+          "name": "baks-dev/yandex-market-products",
+          "description": "Модуль продукции Yandex Market",
+          "keywords": [
+            "symfony",
+            "products",
+            "plugin",
+            "library",
+            "module",
+            "bundle",
+            "yandex",
+            "market",
+            "baksdev"
+          ],
+          "readmeCharacters": 983,
+          "specificKeywords": [
+            "baksdev",
+            "market",
+            "module",
+            "plugin",
+            "products",
+            "yandex"
+          ],
+          "centroidCosine": 0.7936412392558974,
+          "silhouette": 0.03632998166133265
+        },
+        {
+          "name": "phpunit/php-invoker",
+          "description": "Invoke callables with a timeout",
+          "keywords": [
+            "process"
+          ],
+          "readmeCharacters": 832,
+          "specificKeywords": [
+            "process"
+          ],
+          "centroidCosine": 0.789304173362088,
+          "silhouette": 0.06323259547353748
+        },
+        {
+          "name": "illuminate/queue",
+          "description": "The Illuminate Queue package.",
+          "keywords": [],
+          "readmeCharacters": 1217,
+          "specificKeywords": [],
+          "centroidCosine": 0.7891661352149157,
+          "silhouette": 0.10453030868078317
+        },
+        {
+          "name": "oh/date-extra-validator-bundle",
+          "description": "Symfony2 Date Validator for Minimum and Maximum Constraints",
+          "keywords": [
+            "Symfony2",
+            "validator",
+            "bundle",
+            "date"
+          ],
+          "readmeCharacters": 3032,
+          "specificKeywords": [
+            "date",
+            "validator"
+          ],
+          "centroidCosine": 0.788781442808117,
+          "silhouette": 0.07504012163682865
+        },
+        {
+          "name": "intervention/gif",
+          "description": "PHP GIF Encoder/Decoder",
+          "keywords": [
+            "image",
+            "gd",
+            "gif",
+            "animation"
+          ],
+          "readmeCharacters": 2938,
+          "specificKeywords": [
+            "animation",
+            "gd",
+            "gif",
+            "image"
+          ],
+          "centroidCosine": 0.7875353804591447,
+          "silhouette": 0.08146827078971484
+        },
+        {
+          "name": "symfony/mime",
+          "description": "Allows manipulating MIME messages",
+          "keywords": [
+            "mime",
+            "mime-type"
+          ],
+          "readmeCharacters": 637,
+          "specificKeywords": [
+            "mime",
+            "mime-type"
+          ],
+          "centroidCosine": 0.7789810293133558,
+          "silhouette": 0.03825057690913583
+        },
+        {
+          "name": "gorgo13/database-component",
+          "description": "",
+          "keywords": [],
+          "readmeCharacters": 1276,
+          "specificKeywords": [],
+          "centroidCosine": 0.7764571817026694,
+          "silhouette": 0.08713942032112497
+        },
+        {
+          "name": "codeconsortium/ccdn-component-bb-code",
+          "description": "BB Code Engine for PHP 5.3",
+          "keywords": [
+            "markdown",
+            "code",
+            "markup",
+            "bbcode",
+            "BB"
+          ],
+          "readmeCharacters": 213,
+          "specificKeywords": [
+            "bb",
+            "bbcode",
+            "code",
+            "markdown",
+            "markup"
+          ],
+          "centroidCosine": 0.7762870408096617,
+          "silhouette": 0.0206206770384827
+        },
+        {
+          "name": "baks-dev/four-tochki-orders",
+          "description": "Модуль продукции 4Tochki",
+          "keywords": [
+            "symfony",
+            "orders",
+            "plugin",
+            "library",
+            "module",
+            "bundle",
+            "baksdev",
+            "4tochki"
+          ],
+          "readmeCharacters": 910,
+          "specificKeywords": [
+            "4tochki",
+            "baksdev",
+            "module",
+            "orders",
+            "plugin"
+          ],
+          "centroidCosine": 0.7749165205599227,
+          "silhouette": 0.07260750662361867
+        },
+        {
+          "name": "sebastian/phpcpd",
+          "description": "Copy/Paste Detector (CPD) for PHP code.",
+          "keywords": [],
+          "readmeCharacters": 1386,
+          "specificKeywords": [],
+          "centroidCosine": 0.7682104585058209,
+          "silhouette": 0.06961810359055876
+        },
+        {
+          "name": "ciricihq/match-against-bundle",
+          "description": " A search bundle for symfony, using MySQL FULLTEXT MATCH AGAINST",
+          "keywords": [
+            "symfony",
+            "Symfony2",
+            "mysql",
+            "full-text",
+            "match-against"
+          ],
+          "readmeCharacters": 1133,
+          "specificKeywords": [
+            "full-text",
+            "match-against",
+            "mysql"
+          ],
+          "centroidCosine": 0.7681657479550289,
+          "silhouette": -0.008926805938387366
+        },
+        {
+          "name": "web-token/jwt-encryption",
+          "description": "Encryption component of the JWT Framework.",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "jwt",
+            "JWS",
+            "JWE",
+            "JOSE",
+            "jwa",
+            "JWK",
+            "JWKSet",
+            "Jot",
+            "RFC7515",
+            "RFC7516",
+            "RFC7517",
+            "RFC7518",
+            "RFC7519",
+            "RFC7520"
+          ],
+          "readmeCharacters": 493,
+          "specificKeywords": [
+            "jose",
+            "jot",
+            "jwa",
+            "jwe",
+            "jwk",
+            "jwkset",
+            "jws",
+            "jwt",
+            "rfc7515",
+            "rfc7516",
+            "rfc7517",
+            "rfc7518",
+            "rfc7519",
+            "rfc7520"
+          ],
+          "centroidCosine": 0.7651046374285448,
+          "silhouette": 0.08620789627013219
+        },
+        {
+          "name": "propel/propel1",
+          "description": "Propel is an open-source Object-Relational Mapping (ORM) for PHP5.",
+          "keywords": [
+            "database",
+            "orm",
+            "persistence",
+            "Active Record",
+            "mapping"
+          ],
+          "readmeCharacters": 1210,
+          "specificKeywords": [
+            "active record",
+            "database",
+            "mapping",
+            "orm",
+            "persistence"
+          ],
+          "centroidCosine": 0.753153901310802,
+          "silhouette": 0.08908884572955841
+        },
+        {
+          "name": "jasonroman/flot",
+          "description": "Jason Roman's PHP Flot Class",
+          "keywords": [
+            "flot"
+          ],
+          "readmeCharacters": 965,
+          "specificKeywords": [
+            "flot"
+          ],
+          "centroidCosine": 0.7330907830289815,
+          "silhouette": 0.09900440758876503
+        },
+        {
+          "name": "cariboo/doctrine-dbal-cariboo",
+          "description": "Extensions Doctrine DBAL Cariboo",
+          "keywords": [],
+          "readmeCharacters": 69,
+          "specificKeywords": [],
+          "centroidCosine": 0.7123754732391592,
+          "silhouette": 0.033934396482361746
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "size": 13,
+      "descriptionTerms": [
+        "cms",
+        "user",
+        "blog",
+        "rest",
+        "admin",
+        "common",
+        "config",
+        "core"
+      ],
+      "meanSilhouette": 0.07381985078692599,
+      "medianReadmeCharacters": 44.0,
+      "meanPairCosine": 0.6809557111965149,
+      "noKeywords": 3,
+      "noSpecificKeywords": 3,
+      "topKeywords": [
+        [
+          "admin",
+          1
+        ],
+        [
+          "bootstrap",
+          1
+        ],
+        [
+          "interface",
+          1
+        ],
+        [
+          "install management",
+          1
+        ],
+        [
+          "blog",
+          1
+        ],
+        [
+          "cron",
+          1
+        ],
+        [
+          "cronjob",
+          1
+        ],
+        [
+          "crontab",
+          1
+        ],
+        [
+          "scheduler",
+          1
+        ],
+        [
+          "task",
+          1
+        ]
+      ],
+      "members": [
+        {
+          "name": "baconmanager/user-bundle",
+          "description": "This bundle of symfony2",
+          "keywords": [
+            "user bundle"
+          ],
+          "readmeCharacters": 39,
+          "specificKeywords": [
+            "user bundle"
+          ],
+          "centroidCosine": 0.8732167120097318,
+          "silhouette": 0.09532825541652871
+        },
+        {
+          "name": "baconmanager/rest-bundle",
+          "description": "This bundle of symfony2",
+          "keywords": [
+            "rest bundle"
+          ],
+          "readmeCharacters": 17,
+          "specificKeywords": [
+            "rest bundle"
+          ],
+          "centroidCosine": 0.8704773910767294,
+          "silhouette": 0.13933984573465552
+        },
+        {
+          "name": "deter-consulting/lexoffice-bundle",
+          "description": "This is a bundle to to use lexoffice with symfony",
+          "keywords": [],
+          "readmeCharacters": 18,
+          "specificKeywords": [],
+          "centroidCosine": 0.8654461621345566,
+          "silhouette": 0.12717123307008887
+        },
+        {
+          "name": "proxia/cms-sdk-bundle",
+          "description": "Symfony bundle for Proxia.CMS",
+          "keywords": [],
+          "readmeCharacters": 23,
+          "specificKeywords": [],
+          "centroidCosine": 0.8650347405347658,
+          "silhouette": 0.12877238980957564
+        },
+        {
+          "name": "pickle/admin-bundle",
+          "description": "Simple admin bundle for Symfony2",
+          "keywords": [
+            "admin",
+            "bootstrap",
+            "interface"
+          ],
+          "readmeCharacters": 86,
+          "specificKeywords": [
+            "admin",
+            "bootstrap",
+            "interface"
+          ],
+          "centroidCosine": 0.8507401327211727,
+          "silhouette": 0.03396350885349025
+        },
+        {
+          "name": "brix/core-bundle",
+          "description": "The core for the brix cms",
+          "keywords": [
+            "symfony",
+            "cms",
+            "core",
+            "brix"
+          ],
+          "readmeCharacters": 44,
+          "specificKeywords": [
+            "brix",
+            "cms",
+            "core"
+          ],
+          "centroidCosine": 0.8417802785372674,
+          "silhouette": 0.1789263174820108
+        },
+        {
+          "name": "agentsib/crontab-bundle",
+          "description": "Crontab bundle for Symfony2",
+          "keywords": [
+            "symfony",
+            "cron",
+            "task",
+            "crontab",
+            "cronjob",
+            "scheduler"
+          ],
+          "readmeCharacters": 69,
+          "specificKeywords": [
+            "cron",
+            "cronjob",
+            "crontab",
+            "scheduler",
+            "task"
+          ],
+          "centroidCosine": 0.8357707015644911,
+          "silhouette": 0.006777197277597868
+        },
+        {
+          "name": "billhance/remote-assets-bundle",
+          "description": "A Symfony2 console command that copies a remote file to the public assets directory",
+          "keywords": [
+            "symfony",
+            "assets",
+            "command"
+          ],
+          "readmeCharacters": 128,
+          "specificKeywords": [
+            "assets",
+            "command"
+          ],
+          "centroidCosine": 0.8283608919561396,
+          "silhouette": -0.0138224321757564
+        },
+        {
+          "name": "brt/blog-bundle",
+          "description": "Symfony 3 Blog Bundle",
+          "keywords": [
+            "symfony",
+            "blog",
+            "bundle",
+            "symfony3"
+          ],
+          "readmeCharacters": 547,
+          "specificKeywords": [
+            "blog"
+          ],
+          "centroidCosine": 0.8277912433950894,
+          "silhouette": -0.06673502501149929
+        },
+        {
+          "name": "tecnocreaciones/install-bundle",
+          "description": "Provides installation commands to install or uninstall the application quickly",
+          "keywords": [
+            "Install management"
+          ],
+          "readmeCharacters": 28,
+          "specificKeywords": [
+            "install management"
+          ],
+          "centroidCosine": 0.8268857835436662,
+          "silhouette": 0.033891839206700025
+        },
+        {
+          "name": "recruiter/common-bundle",
+          "description": "Common functionality which bridges recruiter/recruit-bundle and recruiter-employer-bundle.",
+          "keywords": [
+            "bundle",
+            "recruiter"
+          ],
+          "readmeCharacters": 44,
+          "specificKeywords": [
+            "recruiter"
+          ],
+          "centroidCosine": 0.8248083319068299,
+          "silhouette": 0.08702365122237486
+        },
+        {
+          "name": "inisire/react-bundle",
+          "description": "React Bundle",
+          "keywords": [
+            "symfony",
+            "reactphp"
+          ],
+          "readmeCharacters": 49,
+          "specificKeywords": [
+            "reactphp"
+          ],
+          "centroidCosine": 0.8224041847287613,
+          "silhouette": 0.114481443643209
+        },
+        {
+          "name": "fh-platform/config",
+          "description": "FH Platform - Config bundle",
+          "keywords": [],
+          "readmeCharacters": 32,
+          "specificKeywords": [],
+          "centroidCosine": 0.7864908780562136,
+          "silhouette": 0.09453983570106192
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "size": 37,
+      "descriptionTerms": [
+        "api",
+        "job",
+        "afip",
+        "package",
+        "web",
+        "allows",
+        "adds",
+        "client"
+      ],
+      "meanSilhouette": 0.08734519558914668,
+      "medianReadmeCharacters": 1619.0,
+      "meanPairCosine": 0.7197477732628844,
+      "noKeywords": 13,
+      "noSpecificKeywords": 13,
+      "topKeywords": [
+        [
+          "api",
+          4
+        ],
+        [
+          "afip",
+          2
+        ],
+        [
+          "services",
+          2
+        ],
+        [
+          "web",
+          2
+        ],
+        [
+          "saml",
+          2
+        ],
+        [
+          "simplesamlphp",
+          2
+        ],
+        [
+          "common",
+          2
+        ],
+        [
+          "common-gateway-plugin",
+          2
+        ],
+        [
+          "commongateway",
+          2
+        ],
+        [
+          "conduction",
+          2
+        ]
+      ],
+      "members": [
+        {
+          "name": "hslavich/simplesamlphp-bundle",
+          "description": "SimpleSAMLphp Bundle for Symfony",
+          "keywords": [
+            "saml",
+            "simplesamlphp"
+          ],
+          "readmeCharacters": 4757,
+          "specificKeywords": [
+            "saml",
+            "simplesamlphp"
+          ],
+          "centroidCosine": 0.9171362011971044,
+          "silhouette": 0.09566395396970676
+        },
+        {
+          "name": "thedarsideofit/afip-bundle",
+          "description": "Web Services de AFIP para symfony 2.x",
+          "keywords": [
+            "web",
+            "services",
+            "afip"
+          ],
+          "readmeCharacters": 1884,
+          "specificKeywords": [
+            "afip",
+            "services",
+            "web"
+          ],
+          "centroidCosine": 0.901715768032245,
+          "silhouette": 0.17948766371877153
+        },
+        {
+          "name": "tony/extra-bundle",
+          "description": "A simple extra bundle for Symfony2",
+          "keywords": [],
+          "readmeCharacters": 912,
+          "specificKeywords": [],
+          "centroidCosine": 0.8916956447572607,
+          "silhouette": 0.15372048351119777
+        },
+        {
+          "name": "hackzilla/password-generator-bundle",
+          "description": "Password Generator Bundle",
+          "keywords": [],
+          "readmeCharacters": 3495,
+          "specificKeywords": [],
+          "centroidCosine": 0.8865915056911389,
+          "silhouette": 0.10068083107681576
+        },
+        {
+          "name": "idci/contact-form-bundle",
+          "description": "Symfony ContactFormBundle",
+          "keywords": [
+            "mail",
+            "message",
+            "Forms",
+            "social network"
+          ],
+          "readmeCharacters": 2669,
+          "specificKeywords": [
+            "forms",
+            "mail",
+            "message",
+            "social network"
+          ],
+          "centroidCosine": 0.8822832774102332,
+          "silhouette": 0.11058639803884059
+        },
+        {
+          "name": "common-gateway/xxllnc-to-ktb-bundle",
+          "description": "An example package for creating symfony flex bundles as plugins",
+          "keywords": [
+            "symfony",
+            "gateway",
+            "common",
+            "conduction",
+            "commongateway",
+            "common-gateway-plugin",
+            "pet store"
+          ],
+          "readmeCharacters": 1619,
+          "specificKeywords": [
+            "common",
+            "common-gateway-plugin",
+            "commongateway",
+            "conduction",
+            "gateway",
+            "pet store"
+          ],
+          "centroidCosine": 0.8768955846454186,
+          "silhouette": 0.1064698369840253
+        },
+        {
+          "name": "symsensor/actuator-mailer-bundle",
+          "description": "Extension for the ActuatorBundle which provides health checking capabilities for the symfony mailer component.",
+          "keywords": [
+            "actuator"
+          ],
+          "readmeCharacters": 1779,
+          "specificKeywords": [
+            "actuator"
+          ],
+          "centroidCosine": 0.8738219419142774,
+          "silhouette": 0.11569860456953149
+        },
+        {
+          "name": "jcroll/foursquare-api-bundle",
+          "description": "Symfony bundle for the jcroll/foursquare-api-client",
+          "keywords": [
+            "api",
+            "client",
+            "oauth",
+            "foursquare",
+            "HWIOAuthBundle",
+            "swarm"
+          ],
+          "readmeCharacters": 4364,
+          "specificKeywords": [
+            "api",
+            "client",
+            "foursquare",
+            "hwioauthbundle",
+            "oauth",
+            "swarm"
+          ],
+          "centroidCosine": 0.8733749732369913,
+          "silhouette": 0.0550152277840713
+        },
+        {
+          "name": "schoenef/here-api-connector-bundle",
+          "description": "Allows to use the here geolocation api at https://developer.here.com/documentation#geocoder easily inside of symfony projects.",
+          "keywords": [],
+          "readmeCharacters": 2024,
+          "specificKeywords": [],
+          "centroidCosine": 0.8731734076310589,
+          "silhouette": 0.13606615837746117
+        },
+        {
+          "name": "gonzaloalonsod/afip-bundle",
+          "description": "Web Services de AFIP",
+          "keywords": [
+            "web",
+            "services",
+            "afip"
+          ],
+          "readmeCharacters": 2358,
+          "specificKeywords": [
+            "afip",
+            "services",
+            "web"
+          ],
+          "centroidCosine": 0.872585640370684,
+          "silhouette": 0.1492284727411701
+        },
+        {
+          "name": "uga/twig2pdf-bundle",
+          "description": "twig2pdf",
+          "keywords": [
+            "pdf",
+            "TCPDF",
+            "html2pdf"
+          ],
+          "readmeCharacters": 5094,
+          "specificKeywords": [
+            "html2pdf",
+            "pdf",
+            "tcpdf"
+          ],
+          "centroidCosine": 0.8681595615649431,
+          "silhouette": 0.08258180836161177
+        },
+        {
+          "name": "pdfloresjdav/api-bundle",
+          "description": "Symfony DoYouBuzz Api Connection Bundle",
+          "keywords": [
+            "symfony",
+            "api",
+            "library",
+            "showcase",
+            "doyoubuzz"
+          ],
+          "readmeCharacters": 1494,
+          "specificKeywords": [
+            "api",
+            "doyoubuzz",
+            "showcase"
+          ],
+          "centroidCosine": 0.8672838996679159,
+          "silhouette": 0.11558907736249735
+        },
+        {
+          "name": "bugbyte/deployer-bundle",
+          "description": "Symfony 2.1.x wrapper for the bugbyte/deployer package.",
+          "keywords": [],
+          "readmeCharacters": 631,
+          "specificKeywords": [],
+          "centroidCosine": 0.8669321708230502,
+          "silhouette": 0.13680116545839313
+        },
+        {
+          "name": "rdf/job-definition-format-bundle",
+          "description": "This Bundle provides various tools to read, write and modify JDF",
+          "keywords": [
+            "jdf"
+          ],
+          "readmeCharacters": 3065,
+          "specificKeywords": [
+            "jdf"
+          ],
+          "centroidCosine": 0.8618398125855142,
+          "silhouette": 0.0743833458861908
+        },
+        {
+          "name": "michaelesmith/front-controller-security-bundle",
+          "description": "Allows for easy ip based security for front controllers in Symfony2",
+          "keywords": [
+            "security",
+            "front controller"
+          ],
+          "readmeCharacters": 4354,
+          "specificKeywords": [
+            "front controller",
+            "security"
+          ],
+          "centroidCosine": 0.8609757191181541,
+          "silhouette": 0.07671481940906051
+        },
+        {
+          "name": "whatson-web/cms-bundle",
+          "description": "Symfony - Whatson Web - CmsBundle",
+          "keywords": [],
+          "readmeCharacters": 1096,
+          "specificKeywords": [],
+          "centroidCosine": 0.8597049928179803,
+          "silhouette": 0.05479818659402767
+        },
+        {
+          "name": "snc/redis-bundle",
+          "description": "A Redis bundle for Symfony",
+          "keywords": [
+            "nosql",
+            "redis",
+            "symfony"
+          ],
+          "readmeCharacters": 2048,
+          "specificKeywords": [
+            "nosql",
+            "redis"
+          ],
+          "centroidCosine": 0.855894940088452,
+          "silhouette": 0.08095370818639205
+        },
+        {
+          "name": "integrated/solr-bundle",
+          "description": "Adds support for Solr configuration and indexing of your documents or entities",
+          "keywords": [
+            "solr",
+            "Integrated"
+          ],
+          "readmeCharacters": 1846,
+          "specificKeywords": [
+            "integrated",
+            "solr"
+          ],
+          "centroidCosine": 0.8557766789078587,
+          "silhouette": 0.04887340482121155
+        },
+        {
+          "name": "ap/cpanel-bundle",
+          "description": "Symfony ApCpanelBundle",
+          "keywords": [
+            "api",
+            "cpanel"
+          ],
+          "readmeCharacters": 903,
+          "specificKeywords": [
+            "api",
+            "cpanel"
+          ],
+          "centroidCosine": 0.8547250173916779,
+          "silhouette": 0.16173446876736167
+        },
+        {
+          "name": "pdias/saml-bundle",
+          "description": "The SamlBundle adds support for SAML 2.0 Service Provider in Symfony.",
+          "keywords": [
+            "saml",
+            "simplesamlphp",
+            "simplesaml"
+          ],
+          "readmeCharacters": 1316,
+          "specificKeywords": [
+            "saml",
+            "simplesaml",
+            "simplesamlphp"
+          ],
+          "centroidCosine": 0.8541750961981811,
+          "silhouette": 0.07695787530195575
+        },
+        {
+          "name": "micro-module/broadway-bundle",
+          "description": "Symfony bundle for micro-module/broadway.",
+          "keywords": [
+            "ddd",
+            "cqrs",
+            "domain-driven design",
+            "event sourcing"
+          ],
+          "readmeCharacters": 1011,
+          "specificKeywords": [
+            "cqrs",
+            "ddd",
+            "domain-driven design",
+            "event sourcing"
+          ],
+          "centroidCosine": 0.8454580257141456,
+          "silhouette": 0.08853772522607939
+        },
+        {
+          "name": "danielpanzella/bitbucket-api-bundle",
+          "description": "A bundle for the Bitbucket API Client",
+          "keywords": [],
+          "readmeCharacters": 511,
+          "specificKeywords": [],
+          "centroidCosine": 0.845073870249099,
+          "silhouette": 0.10675231741040467
+        },
+        {
+          "name": "ruano_a/access-limiter-bundle",
+          "description": "A symfony bundle to highly limit the access to a website, on a very restricted beta for instance.",
+          "keywords": [],
+          "readmeCharacters": 1075,
+          "specificKeywords": [],
+          "centroidCosine": 0.8447721913660229,
+          "silhouette": 0.048059491902260054
+        },
+        {
+          "name": "common-gateway/template-bundle",
+          "description": "An example package for creating symfony flex bundles as plugins",
+          "keywords": [
+            "symfony",
+            "template",
+            "gateway",
+            "common",
+            "conduction",
+            "commongateway",
+            "common-gateway-plugin"
+          ],
+          "readmeCharacters": 250,
+          "specificKeywords": [
+            "common",
+            "common-gateway-plugin",
+            "commongateway",
+            "conduction",
+            "gateway",
+            "template"
+          ],
+          "centroidCosine": 0.8442875580555029,
+          "silhouette": 0.020852023775548432
+        },
+        {
+          "name": "awaresoft/maintenance-bundle",
+          "description": "Symfony Awaresoft MaintenanceBundle",
+          "keywords": [],
+          "readmeCharacters": 2357,
+          "specificKeywords": [],
+          "centroidCosine": 0.8441947443882627,
+          "silhouette": 0.02993097072605922
+        },
+        {
+          "name": "certunlp/database-config-bundle",
+          "description": "Allows management of Symfony's container configuration from the database",
+          "keywords": [
+            "container",
+            "database",
+            "symfony",
+            "config",
+            "unifik"
+          ],
+          "readmeCharacters": 3151,
+          "specificKeywords": [
+            "config",
+            "container",
+            "database",
+            "unifik"
+          ],
+          "centroidCosine": 0.8429070776864895,
+          "silhouette": 0.04408379927932295
+        },
+        {
+          "name": "babdev/money-bundle",
+          "description": "Bundle integrating the Money for PHP library with Symfony",
+          "keywords": [
+            "symfony",
+            "money",
+            "currency",
+            "moneyphp"
+          ],
+          "readmeCharacters": 1443,
+          "specificKeywords": [
+            "currency",
+            "money",
+            "moneyphp"
+          ],
+          "centroidCosine": 0.8425037287778647,
+          "silhouette": 0.08537189420435928
+        },
+        {
+          "name": "jacobn/extension-framework",
+          "description": "Jacobn Community Helpdesk Extension Framework Bundle",
+          "keywords": [],
+          "readmeCharacters": 3327,
+          "specificKeywords": [],
+          "centroidCosine": 0.8421606891667216,
+          "silhouette": 0.034811547553725855
+        },
+        {
+          "name": "rizeway/job-bundle",
+          "description": "A Simple Job Bundle for Symfony 2",
+          "keywords": [],
+          "readmeCharacters": 2559,
+          "specificKeywords": [],
+          "centroidCosine": 0.8402559083973363,
+          "silhouette": 0.11150906931527632
+        },
+        {
+          "name": "php-nik/pm-bundle",
+          "description": "Project manager bundle for Symfony2",
+          "keywords": [
+            "project manager"
+          ],
+          "readmeCharacters": 79,
+          "specificKeywords": [
+            "project manager"
+          ],
+          "centroidCosine": 0.8385096747871212,
+          "silhouette": 0.04784866209851817
+        },
+        {
+          "name": "padam87/cron-bundle",
+          "description": "A cron job manager for symfony console.",
+          "keywords": [
+            "symfony",
+            "console",
+            "cron"
+          ],
+          "readmeCharacters": 885,
+          "specificKeywords": [
+            "console",
+            "cron"
+          ],
+          "centroidCosine": 0.837415893783813,
+          "silhouette": 0.06650650529425489
+        },
+        {
+          "name": "djamadeus/mailchimp-bundle2",
+          "description": "Symfony2 Bundle for Mailchimp v2.0 API and Export v1.0 API",
+          "keywords": [
+            "mailchimp",
+            "api",
+            "email"
+          ],
+          "readmeCharacters": 1548,
+          "specificKeywords": [
+            "api",
+            "email",
+            "mailchimp"
+          ],
+          "centroidCosine": 0.8307007851859939,
+          "silhouette": 0.08247874173097136
+        },
+        {
+          "name": "lcstudios/ldap-bundle",
+          "description": "Symfony LCStudiosLdapBundle",
+          "keywords": [],
+          "readmeCharacters": 2347,
+          "specificKeywords": [],
+          "centroidCosine": 0.8303245514407958,
+          "silhouette": 0.0785243347445831
+        },
+        {
+          "name": "firestorm23/command-runner-bundle",
+          "description": "Fork of borNfreee/CommandRunnerBundle. Executes symfony console command from a Controller.",
+          "keywords": [
+            "console",
+            "command",
+            "controller"
+          ],
+          "readmeCharacters": 1017,
+          "specificKeywords": [
+            "command",
+            "console",
+            "controller"
+          ],
+          "centroidCosine": 0.8233070454890177,
+          "silhouette": 0.11887506127857171
+        },
+        {
+          "name": "fi/imapbundle",
+          "description": "Imap bundle per Fifree2",
+          "keywords": [
+            "fifree2 bundle imap"
+          ],
+          "readmeCharacters": 521,
+          "specificKeywords": [
+            "fifree2 bundle imap"
+          ],
+          "centroidCosine": 0.8104423267134132,
+          "silhouette": 0.0982912846688641
+        },
+        {
+          "name": "jean553/coordinates-distance-bundle",
+          "description": "Coordinates/Distance converter",
+          "keywords": [],
+          "readmeCharacters": 456,
+          "specificKeywords": [],
+          "centroidCosine": 0.7853598731741394,
+          "silhouette": 0.05134083784686661
+        },
+        {
+          "name": "schulit/adauth",
+          "description": "Client library for Active Directory Authentication Server",
+          "keywords": [],
+          "readmeCharacters": 1012,
+          "specificKeywords": [],
+          "centroidCosine": 0.7523625282927777,
+          "silhouette": 0.005992478822467413
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "size": 15,
+      "descriptionTerms": [
+        "sonata",
+        "doctrine",
+        "blog",
+        "module",
+        "admin",
+        "management",
+        "menu",
+        "simple"
+      ],
+      "meanSilhouette": 0.03783106552101331,
+      "medianReadmeCharacters": 1570.0,
+      "meanPairCosine": 0.6969673630790151,
+      "noKeywords": 3,
+      "noSpecificKeywords": 4,
+      "topKeywords": [
+        [
+          "sonata",
+          3
+        ],
+        [
+          "profile",
+          1
+        ],
+        [
+          "registration",
+          1
+        ],
+        [
+          "user management",
+          1
+        ],
+        [
+          "aropixel blog bundle",
+          1
+        ],
+        [
+          "block",
+          1
+        ],
+        [
+          "builder",
+          1
+        ],
+        [
+          "cms",
+          1
+        ],
+        [
+          "dinamic",
+          1
+        ],
+        [
+          "fields",
+          1
+        ]
+      ],
+      "members": [
+        {
+          "name": "rikudou/sonata-formatter-bundle-fork",
+          "description": "Symfony SonataFormatterBundle",
+          "keywords": [
+            "sonata",
+            "editor",
+            "CKEditor",
+            "formatter"
+          ],
+          "readmeCharacters": 3732,
+          "specificKeywords": [
+            "ckeditor",
+            "editor",
+            "formatter",
+            "sonata"
+          ],
+          "centroidCosine": 0.8913920914784487,
+          "silhouette": 0.13700348802362514
+        },
+        {
+          "name": "dkartasis8bitgroup/sonata-translation-bundle",
+          "description": "Integration of lexik translation into sonata admin",
+          "keywords": [
+            "translation",
+            "sonata",
+            "lexik",
+            "dkartasis8bitgroup"
+          ],
+          "readmeCharacters": 2560,
+          "specificKeywords": [
+            "dkartasis8bitgroup",
+            "lexik",
+            "sonata",
+            "translation"
+          ],
+          "centroidCosine": 0.8834998567434342,
+          "silhouette": 0.11141021637288522
+        },
+        {
+          "name": "stfalcon/blog-bundle",
+          "description": "Simple blog module.",
+          "keywords": [
+            "blog"
+          ],
+          "readmeCharacters": 1570,
+          "specificKeywords": [
+            "blog"
+          ],
+          "centroidCosine": 0.8814331530811623,
+          "silhouette": 0.1434388364405479
+        },
+        {
+          "name": "stfalcon/portfolio-bundle",
+          "description": "Simple portfolio module.",
+          "keywords": [
+            "portfolio"
+          ],
+          "readmeCharacters": 1604,
+          "specificKeywords": [
+            "portfolio"
+          ],
+          "centroidCosine": 0.8771386313215652,
+          "silhouette": 0.04785270823664854
+        },
+        {
+          "name": "josemaestre/chatbundle",
+          "description": "Symfony 4 Bundle - Notification groups Bundle",
+          "keywords": [
+            "Symfony2",
+            "bundle",
+            "notification",
+            "chat",
+            "gcm",
+            "apns",
+            "sopinet"
+          ],
+          "readmeCharacters": 1613,
+          "specificKeywords": [
+            "apns",
+            "chat",
+            "gcm",
+            "notification",
+            "sopinet"
+          ],
+          "centroidCosine": 0.8596480894419423,
+          "silhouette": 0.03686415013425611
+        },
+        {
+          "name": "awaresoft/sonata-block-bundle",
+          "description": "Symfony Awaresoft SonataBlockBundle",
+          "keywords": [],
+          "readmeCharacters": 2357,
+          "specificKeywords": [],
+          "centroidCosine": 0.8577294102878408,
+          "silhouette": -0.0536769599050251
+        },
+        {
+          "name": "sherlockode/sonata-modular-bundle",
+          "description": "Symfony SonataAdminBundle themed with Modular",
+          "keywords": [],
+          "readmeCharacters": 630,
+          "specificKeywords": [],
+          "centroidCosine": 0.8546100797184824,
+          "silhouette": 0.10653526276408043
+        },
+        {
+          "name": "lexxpavlov/spellingbundle",
+          "description": "Symfony2/3 Spelling bundle provides spelling check by users",
+          "keywords": [
+            "symfony",
+            "error",
+            "bundle",
+            "spelling",
+            "misprint",
+            "typo",
+            "mistake",
+            "error correct"
+          ],
+          "readmeCharacters": 1171,
+          "specificKeywords": [
+            "error",
+            "error correct",
+            "misprint",
+            "mistake",
+            "spelling",
+            "typo"
+          ],
+          "centroidCosine": 0.8510551904938473,
+          "silhouette": 0.056995885446593515
+        },
+        {
+          "name": "nucleos/profile-bundle",
+          "description": "Registration and profile management for symfony",
+          "keywords": [
+            "symfony",
+            "User management",
+            "registration",
+            "profile"
+          ],
+          "readmeCharacters": 1838,
+          "specificKeywords": [
+            "profile",
+            "registration",
+            "user management"
+          ],
+          "centroidCosine": 0.8496104520591187,
+          "silhouette": -0.03243925423497233
+        },
+        {
+          "name": "weare/form-builder",
+          "description": "Symfony WeareFormBuilderBundle",
+          "keywords": [
+            "form",
+            "sonata",
+            "cms",
+            "block",
+            "builder",
+            "fields",
+            "dinamic"
+          ],
+          "readmeCharacters": 1416,
+          "specificKeywords": [
+            "block",
+            "builder",
+            "cms",
+            "dinamic",
+            "fields",
+            "form",
+            "sonata"
+          ],
+          "centroidCosine": 0.8485239009079988,
+          "silhouette": -0.018054726908386665
+        },
+        {
+          "name": "devilcius/admin-menu-bundle",
+          "description": "Extended menu to use with Symfony2 and sonata-admin",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "sonata-admin"
+          ],
+          "readmeCharacters": 2319,
+          "specificKeywords": [
+            "sonata-admin"
+          ],
+          "centroidCosine": 0.8443375731100915,
+          "silhouette": 0.02479805953383867
+        },
+        {
+          "name": "goksagun/doctrine-cache-invalidation-bundle",
+          "description": "Doctrine cache invalidation bundle",
+          "keywords": [
+            "doctrine cache invalidation bundle"
+          ],
+          "readmeCharacters": 955,
+          "specificKeywords": [
+            "doctrine cache invalidation bundle"
+          ],
+          "centroidCosine": 0.8219842080846029,
+          "silhouette": -0.06879374111581568
+        },
+        {
+          "name": "enhavo/doctrine-extension-bundle",
+          "description": "DoctrineExtension",
+          "keywords": [
+            "framework"
+          ],
+          "readmeCharacters": 397,
+          "specificKeywords": [],
+          "centroidCosine": 0.8043627714657314,
+          "silhouette": 0.014016432578876624
+        },
+        {
+          "name": "aropixel/blog-bundle",
+          "description": "Gestion de blog pour admin Aropixel",
+          "keywords": [
+            "aropixel blog bundle"
+          ],
+          "readmeCharacters": 1302,
+          "specificKeywords": [
+            "aropixel blog bundle"
+          ],
+          "centroidCosine": 0.7966550858271172,
+          "silhouette": 0.04677892443067619
+        },
+        {
+          "name": "rikudou/doctrine-plural-naming",
+          "description": "Plural underscore naming strategy for Doctrine and Symfony",
+          "keywords": [],
+          "readmeCharacters": 271,
+          "specificKeywords": [],
+          "centroidCosine": 0.7808989530407301,
+          "silhouette": 0.01473670101737106
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "size": 4,
+      "descriptionTerms": [
+        "management",
+        "cron",
+        "responses",
+        "auto",
+        "generate",
+        "command",
+        "simple"
+      ],
+      "meanSilhouette": 0.07182991341066673,
+      "medianReadmeCharacters": 465.0,
+      "meanPairCosine": 0.6769172570385512,
+      "noKeywords": 1,
+      "noSpecificKeywords": 1,
+      "topKeywords": [
+        [
+          "mailing",
+          1
+        ],
+        [
+          "colissimo",
+          1
+        ],
+        [
+          "shipment",
+          1
+        ],
+        [
+          "api",
+          1
+        ],
+        [
+          "cron",
+          1
+        ],
+        [
+          "mongodb",
+          1
+        ],
+        [
+          "monitoring",
+          1
+        ]
+      ],
+      "members": [
+        {
+          "name": "ekyna/mailing-bundle",
+          "description": "Mailing management",
+          "keywords": [
+            "Symfony2",
+            "bundle",
+            "mailing"
+          ],
+          "readmeCharacters": 159,
+          "specificKeywords": [
+            "mailing"
+          ],
+          "centroidCosine": 0.8832460683155302,
+          "silhouette": 0.14242425719465376
+        },
+        {
+          "name": "ekyna/colissimo-bundle",
+          "description": "Colissimo shipment bundle for EkynaCommerceBundle",
+          "keywords": [
+            "symfony",
+            "bundle",
+            "colissimo",
+            "shipment"
+          ],
+          "readmeCharacters": 250,
+          "specificKeywords": [
+            "colissimo",
+            "shipment"
+          ],
+          "centroidCosine": 0.879841513891117,
+          "silhouette": 0.14973088115289573
+        },
+        {
+          "name": "benkle/auto-preflight-bundle",
+          "description": "A simple bundle to automatically generate responses for CORS preflight.",
+          "keywords": [],
+          "readmeCharacters": 680,
+          "specificKeywords": [],
+          "centroidCosine": 0.860426666359023,
+          "silhouette": -0.038922013728202795
+        },
+        {
+          "name": "pierre-tranchard/cron-monitor-bundle",
+          "description": "Bundle designed to monitor cron & command",
+          "keywords": [
+            "mongodb",
+            "api",
+            "cron",
+            "monitoring"
+          ],
+          "readmeCharacters": 1452,
+          "specificKeywords": [
+            "api",
+            "cron",
+            "mongodb",
+            "monitoring"
+          ],
+          "centroidCosine": 0.8582966429766339,
+          "silhouette": 0.034086529023320274
+        }
+      ]
+    }
+  ],
+  "closePairsWithoutSharedSpecificKeyword": [
+    {
+      "a": "baconmanager/rest-bundle",
+      "b": "baconmanager/user-bundle",
+      "cosine": 0.882850187326363,
+      "keywordsA": [
+        "rest bundle"
+      ],
+      "keywordsB": [
+        "user bundle"
+      ],
+      "cluster": 3
+    },
+    {
+      "a": "stfalcon/blog-bundle",
+      "b": "stfalcon/portfolio-bundle",
+      "cosine": 0.8735680642887904,
+      "keywordsA": [
+        "blog"
+      ],
+      "keywordsB": [
+        "portfolio"
+      ],
+      "cluster": 5
+    },
+    {
+      "a": "stejac/guarded-chat-bundle",
+      "b": "softavis/turnstile",
+      "cosine": 0.865180059679863,
+      "keywordsA": [
+        "symfony",
+        "chat",
+        "ai",
+        "symfony-bundle",
+        "rate-limit",
+        "symfony-ux",
+        "llm",
+        "guardrails"
+      ],
+      "keywordsB": [],
+      "cluster": 2
+    },
+    {
+      "a": "likeuntomurphy/serverless-ogm",
+      "b": "shedeza/sybase-orm",
+      "cosine": 0.8645518006246534,
+      "keywordsA": [],
+      "keywordsB": [],
+      "cluster": 2
+    },
+    {
+      "a": "likeuntomurphy/serverless-ogm",
+      "b": "fedale/access-control-voter-bundle",
+      "cosine": 0.8512312414681599,
+      "keywordsA": [],
+      "keywordsB": [
+        "symfony",
+        "authorization",
+        "bundle",
+        "roles",
+        "permissions",
+        "rbac",
+        "yii2",
+        "voter",
+        "is-granted"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "fedale/access-control-voter-bundle",
+      "b": "eerzho/opentelemetry-auto-class",
+      "cosine": 0.8502586749439254,
+      "keywordsA": [
+        "symfony",
+        "authorization",
+        "bundle",
+        "roles",
+        "permissions",
+        "rbac",
+        "yii2",
+        "voter",
+        "is-granted"
+      ],
+      "keywordsB": [
+        "monitoring",
+        "traces",
+        "apm",
+        "telemetry",
+        "instrumentation",
+        "tracing",
+        "distributed-tracing",
+        "observability",
+        "php-attributes",
+        "opentelemetry",
+        "otel",
+        "spans",
+        "auto-instrumentation"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "morket/hmvc-bundle",
+      "b": "chamber-orchestra/view-bundle",
+      "cosine": 0.8477250433761176,
+      "keywordsA": [
+        "rest",
+        "rad",
+        "hmvc",
+        "pac"
+      ],
+      "keywordsB": [
+        "symfony",
+        "json",
+        "serialization",
+        "view",
+        "view-model",
+        "symfony-bundle",
+        "rest-api",
+        "JSON-API",
+        "api-response",
+        "property-binding"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "bytes-commerce/zabbix-api",
+      "b": "shedeza/sybase-orm",
+      "cosine": 0.8452221706636294,
+      "keywordsA": [],
+      "keywordsB": [],
+      "cluster": 2
+    },
+    {
+      "a": "morket/hmvc-bundle",
+      "b": "softavis/turnstile",
+      "cosine": 0.8436150166846478,
+      "keywordsA": [
+        "rest",
+        "rad",
+        "hmvc",
+        "pac"
+      ],
+      "keywordsB": [],
+      "cluster": 2
+    },
+    {
+      "a": "bytes-commerce/zabbix-api",
+      "b": "tangoman/front-bundle",
+      "cosine": 0.8434630548728819,
+      "keywordsA": [],
+      "keywordsB": [
+        "symfony",
+        "twig",
+        "bootstrap",
+        "bundle",
+        "extension",
+        "Forms",
+        "service",
+        "responsive",
+        "list",
+        "front",
+        "navbar",
+        "buttons",
+        "menus",
+        "back office",
+        "ordered",
+        "searchable",
+        "TangoMan",
+        "Paginated"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "fedale/access-control-voter-bundle",
+      "b": "appaydin/pd-user",
+      "cosine": 0.8424463442418229,
+      "keywordsA": [
+        "symfony",
+        "authorization",
+        "bundle",
+        "roles",
+        "permissions",
+        "rbac",
+        "yii2",
+        "voter",
+        "is-granted"
+      ],
+      "keywordsB": [
+        "account",
+        "user-management",
+        "symfony-user",
+        "pd-admin",
+        "pd-user"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "fedale/access-control-voter-bundle",
+      "b": "chamber-orchestra/view-bundle",
+      "cosine": 0.8420036212491431,
+      "keywordsA": [
+        "symfony",
+        "authorization",
+        "bundle",
+        "roles",
+        "permissions",
+        "rbac",
+        "yii2",
+        "voter",
+        "is-granted"
+      ],
+      "keywordsB": [
+        "symfony",
+        "json",
+        "serialization",
+        "view",
+        "view-model",
+        "symfony-bundle",
+        "rest-api",
+        "JSON-API",
+        "api-response",
+        "property-binding"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "appaydin/pd-user",
+      "b": "simplethings/entity-audit-bundle",
+      "cosine": 0.8415216327038594,
+      "keywordsA": [
+        "account",
+        "user-management",
+        "symfony-user",
+        "pd-admin",
+        "pd-user"
+      ],
+      "keywordsB": [
+        "database",
+        "persistence",
+        "Audit"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "simplethings/entity-audit-bundle",
+      "b": "bentools/doctrine-changeset",
+      "cosine": 0.8405246946011212,
+      "keywordsA": [
+        "database",
+        "persistence",
+        "Audit"
+      ],
+      "keywordsB": [],
+      "cluster": 2
+    },
+    {
+      "a": "jeremeamia/superclosure",
+      "b": "eerzho/opentelemetry-auto-class",
+      "cosine": 0.8402808669431355,
+      "keywordsA": [
+        "serialize",
+        "parser",
+        "function",
+        "closure",
+        "tokenizer",
+        "serializable",
+        "lambda"
+      ],
+      "keywordsB": [
+        "monitoring",
+        "traces",
+        "apm",
+        "telemetry",
+        "instrumentation",
+        "tracing",
+        "distributed-tracing",
+        "observability",
+        "php-attributes",
+        "opentelemetry",
+        "otel",
+        "spans",
+        "auto-instrumentation"
+      ],
+      "cluster": 2
+    },
+    {
+      "a": "stejac/guarded-chat-bundle",
+      "b": "fedale/access-control-voter-bundle",
+      "cosine": 0.8402047928199518,
+      "keywordsA": [
+        "symfony",
+        "chat",
+        "ai",
+        "symfony-bundle",
+        "rate-limit",
+        "symfony-ux",
+        "llm",
+        "guardrails"
+      ],
+      "keywordsB": [
+        "symfony",
+        "authorization",
+        "bundle",
+        "roles",
+        "permissions",
+        "rbac",
+        "yii2",
+        "voter",
+        "is-granted"
+      ],
+      "cluster": 2
+    }
+  ],
+  "interpretiveLabels": {
+    "1": "Twig, UI and filesystem helpers — mixed",
+    "2": "General integrations and libraries — broad catch-all",
+    "3": "Very short README stubs — not a capability category",
+    "4": "Service adapters and operational tools — mixed",
+    "5": "Sonata, admin and content tooling — clearest theme",
+    "6": "Small mixed group — no defensible topic"
+  }
+}
