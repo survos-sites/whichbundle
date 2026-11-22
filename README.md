@@ -293,3 +293,7 @@ split into 1,500-character chunks, embedded with the Nomic document prefix, comb
 with character-weighted mean pooling and normalized. Query text uses the query prefix.
 No input is silently truncated. A profile change requires regeneration and reindexing.
 `app:packages:embed` is resumable and skips valid cached vectors.
+
+### Cached per-file embeddings
+
+The local [PackageFile embedding pilot](docs/embeddings/README.md) uses ai-embed-bundle, heading/paragraph/token-aware chunks and a durable DuckDB cache for README, AGENTS and docs files. Existing averaged package vectors remain available as the baseline. The seven-file fixture proves that reloading its records restores all 156 chunk vectors without model calls.

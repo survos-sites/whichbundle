@@ -1,0 +1,9 @@
+# Local pilot; production remains disabled until its provider is selected.
+when@dev:
+    survos_ai_embed:
+        enabled: true
+        cache_path: '%env(resolve:PACKAGE_FILE_EMBED_CACHE)%'
+        model: '%env(PACKAGE_FILE_EMBED_MODEL)%'
+        revision: '%env(PACKAGE_FILE_EMBED_REVISION)%'
+        url: '%env(PACKAGE_OLLAMA_URL)%'
+        api_key: '%env(OPENAI_API_KEY)%'

@@ -169,6 +169,12 @@
             "config/packages/sentry.yaml"
         ]
     },
+    "survos/ai-batch-bundle": {
+        "version": "2.45.71"
+    },
+    "survos/ai-embed-bundle": {
+        "version": "2.45.84"
+    },
     "survos/api-grid-bundle": {
         "version": "2.19.2"
     },
@@ -238,6 +244,15 @@
     },
     "survos/workflow-messenger-bundle": {
         "version": "dev-main"
+    },
+    "symfony/ai-open-ai-platform": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "1815c0412f5ef5da5f924ea5fe84ebd6a5422476"
+        }
     },
     "symfony/asset-mapper": {
         "version": "7.3",
@@ -495,6 +510,15 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
+    },
+    "symfony/uid": {
+        "version": "8.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "7.0",
+            "ref": "0df5844274d871b37fc3816c57a768ffc60a43a5"
+        }
     },
     "symfony/ux-chartjs": {
         "version": "v2.31.0"

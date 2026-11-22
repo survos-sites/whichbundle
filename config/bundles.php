@@ -47,4 +47,5 @@ return [
     Survos\WorkflowExtrasBundle\SurvosWorkflowExtrasBundle::class => ['all' => true],
     Survos\MenuBundle\SurvosMenuBundle::class => ['all' => true],
     Symfony\UX\Router\UXRouterBundle::class => ['all' => true],
+    Survos\AiEmbedBundle\SurvosAiEmbedBundle::class => ['all' => true],
 ];

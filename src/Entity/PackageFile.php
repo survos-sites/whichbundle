@@ -19,7 +19,8 @@ class PackageFile
 {
     public const string README = 'readme';
     public const string AGENTS = 'agents';
-    public const array KINDS = [self::README, self::AGENTS];
+    public const string DOCUMENT = 'document';
+    public const array KINDS = [self::README, self::AGENTS, self::DOCUMENT];
 
     #[ORM\Id]
     #[ORM\Column]
@@ -53,12 +54,15 @@ class PackageFile
             throw new \InvalidArgumentException(sprintf('Unknown package file kind "%s".', $kind));
         }
         $this->sha = hash('sha256', $content);
-        $this->id = self::idFor($package, $kind, $this->sha);
+        if ($kind === self::DOCUMENT && (!$path || str_starts_with($path, '/') || str_contains($path, '..') || str_contains($path, '\\'))) {
+            throw new \InvalidArgumentException('Documents require a relative repository path.');
+        }
+        $this->id = self::idFor($package, $kind, $this->sha, $path);
     }
 
-    public static function idFor(Package $package, string $kind, string $sha): string
+    public static function idFor(Package $package, string $kind, string $sha, ?string $path = null): string
     {
-        return sprintf('%s--%s--%s', $package->id, $kind, substr($sha, 0, 12));
+        return sprintf('%s--%s--%s', $package->id, $kind === self::DOCUMENT ? $kind.'-'.substr(hash('sha256', $path ?? ''), 0, 16) : $kind, substr($sha, 0, 12));
     }
 
     public function getState(): ?string
