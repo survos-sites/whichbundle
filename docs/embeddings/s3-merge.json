@@ -1,0 +1,10 @@
+{
+    "sha256": "97aafef25e2b03b643fce301614da0c64127b77c5e40e47dca233df69662ef4b",
+    "profiles": [
+        "ce12eac529fb94a512acab1e2194ec6db2165507eab4af6179f9782dfd893206"
+    ],
+    "vectors": 156,
+    "added": 0,
+    "reused": 156,
+    "documents": 156
+}

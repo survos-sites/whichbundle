@@ -47,11 +47,14 @@ The closed DuckDB file measured 4,206,592 bytes; the vector JSONL gzip measured 
 
 ai-embed-bundle already supports OpenAI batch submission/collection. Select a distinct OpenAI profile with matching tokenizer/prefix/dimensions, retain this DuckDB file, ensure these same files, submit/collect, then repopulate. No paid OpenAI calls were made for this pilot.
 
-S3 pull/merge is a design follow-up, not implemented here. A dedicated embeddings bucket could use repository namespaces with immutable snapshots:
+S3 exchange is now implemented by ai-embed-bundle's single `EmbeddingStorageService` command service. The shared private bucket is `survos-embeddings`, region `fsn1`, endpoint `https://fsn1.your-objectstorage.com`. Packages publishes under `survos-sites/packages/`. These locations are committed configuration; only the access/secret keys are in `.env.local`.
 
-```
-survos-sites/packages/snapshots/<snapshot-sha256>.duckdb
-survos-sites/packages/latest.json
+```sh
+php bin/console embed:push survos-sites/packages
+php bin/console embed:pull survos-sites/packages   # absent/identical local file only
+php bin/console embed:merge survos-sites/packages # additive, conflicts roll back
 ```
 
-A repo namespace identifies the producer/cache collection, not an embedding model: one DuckDB snapshot can contain several profiles. A manifest should record schema version, checksum, profiles and source provenance. `embed:pull` should verify the snapshot and avoid overwriting unmerged local work. `embed:merge` should deduplicate exact request IDs, validate model/dimensions/input identity, and merge through the cache API. Reading a remote DuckDB file efficiently via S3 needs a separate test; do not assume the current PDO adapter supports it. Only snapshot a closed/checkpointed database. No bucket or remote service was created.
+Snapshots contain completed vectors and complete source/chunk mappings across profiles, excluding pending jobs and provider ownership. Immutable `.duckdb` and `.json` objects live under `snapshots/<sha256>` with a `latest.json` pointer. Pull and merge accept `--snapshot=<sha256>`. Merge stages and verifies the file locally rather than querying S3 directly. Existing local vectors are never force-overwritten.
+
+Live verification uploaded all 156 vectors, pulled a separate DuckDB database, then restored both frozen fixtures with zero provider calls and identical projection hashes. The pull's provider-call count was zero before and after, confirming that no queue/audit state crossed machines. A merge into the original cache reused all 156 vectors. Receipts are stored alongside this document. Working cache files are still local; no fsn1 application deployment or persistent mount was changed.

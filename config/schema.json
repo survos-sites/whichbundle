@@ -9745,6 +9745,58 @@
                         "$ref": "#/$defs/types/boolean",
                         "default": false
                     },
+                    "remote_storage": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "s3": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "bucket": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "region": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "us-east-1"
+                            },
+                            "endpoint": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "prefix": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "access_key": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "secret_key": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "session_token": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "path_style": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "bucket": "",
+                            "region": "us-east-1",
+                            "endpoint": "",
+                            "prefix": "",
+                            "access_key": "",
+                            "secret_key": "",
+                            "session_token": "",
+                            "path_style": true
+                        }
+                    },
                     "cache_path": {
                         "$ref": "#/$defs/types/scalar",
                         "default": "%kernel.project_dir%/var/embeddings/cache.duckdb"

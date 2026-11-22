@@ -1,3 +1,14 @@
+# Snapshot commands work without enabling generation or opening the database.
+survos_ai_embed:
+    cache_path: '%env(resolve:PACKAGE_FILE_EMBED_CACHE)%'
+    s3:
+        bucket: '%env(EMBEDDINGS_S3_BUCKET)%'
+        region: '%env(EMBEDDINGS_S3_REGION)%'
+        endpoint: '%env(EMBEDDINGS_S3_ENDPOINT)%'
+        access_key: '%env(EMBEDDINGS_S3_ACCESS_KEY)%'
+        secret_key: '%env(EMBEDDINGS_S3_SECRET_KEY)%'
+        path_style: true
+
 # Local pilot; production remains disabled until its provider is selected.
 when@dev:
     survos_ai_embed:
