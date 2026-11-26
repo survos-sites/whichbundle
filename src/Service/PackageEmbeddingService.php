@@ -16,16 +16,20 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class PackageEmbeddingService implements EmbeddingProviderInterface
 {
-    public const int DIMENSIONS = 768;
+    /** OpenAI text-embedding-3-small at its native size. */
+    public const int DIMENSIONS = 1536;
+    private const string ENDPOINT = 'https://api.openai.com/v1/embeddings';
+    /** Characters per chunk: well under the model's 8,191-token input limit, even for dense code. */
+    private const int CHUNK = 6000;
     public readonly EmbeddingProfile $profile;
-    private bool $verified = false;
 
     public function __construct(private HttpClientInterface $http, private EntityManagerInterface $em,
-        #[Autowire(env: 'PACKAGE_OLLAMA_URL')] private string $url,
+        #[\SensitiveParameter] #[Autowire(env: 'OPENAI_API_KEY')] private string $apiKey,
         #[Autowire(env: 'PACKAGE_EMBED_MODEL')] string $model,
         #[Autowire(env: 'PACKAGE_EMBED_REVISION')] string $revision)
     {
-        $this->profile = new EmbeddingProfile($model, self::DIMENSIONS, $revision, 'readme-v1-chunks-1500-mean');
+        // Changing the model, the size, the revision or the text recipe makes every stored vector stale.
+        $this->profile = new EmbeddingProfile($model, self::DIMENSIONS, $revision, 'readme-v2-chunks-6000-mean');
     }
 
     public static function text(Package $package): string
@@ -54,7 +58,7 @@ final class PackageEmbeddingService implements EmbeddingProviderInterface
 
     public function embed(string $text): array
     {
-        return $this->generate($text, 'search_query: ');
+        return $this->generate($text);
     }
 
     public function vectorize(Package $package): void
@@ -68,36 +72,36 @@ final class PackageEmbeddingService implements EmbeddingProviderInterface
             return;
         }
         $text = self::text($package);
-        $package->embedding = $this->generate($text, 'search_document: ');
+        $package->embedding = $this->generate($text);
         $package->embeddingFingerprint = $this->profile->fingerprint($text);
     }
 
-    private function generate(string $text, string $prefix): array
+    private function generate(string $text): array
     {
-        if (!$this->verified) {
-            $models = $this->http->request('GET', rtrim($this->url, '/').'/api/tags')->toArray()['models'] ?? [];
-            if (!array_any($models, fn (array $m): bool => $m['name'] === $this->profile->model && $m['digest'] === $this->profile->revision)) {
-                throw new \RuntimeException('Embedding model revision mismatch; update the profile and regenerate vectors.');
-            }
-            $this->verified = true;
+        if ('' === $this->apiKey) {
+            throw new \RuntimeException('OPENAI_API_KEY is not set; README embeddings need it.');
         }
         // Include the entire README, in bounded chunks. No silent model truncation.
-        $chunks = mb_str_split($text, 1500, 'UTF-8');
+        $chunks = mb_str_split($text, self::CHUNK, 'UTF-8');
         $sum = array_fill(0, self::DIMENSIONS, 0.0);
         foreach (array_chunk($chunks, 32) as $batch) {
-            $result = $this->http->request('POST', rtrim($this->url, '/').'/api/embed', ['json' => [
-                'model' => $this->profile->model, 'input' => array_map(static fn ($chunk) => $prefix.$chunk, $batch),
-                'truncate' => false, 'keep_alive' => '30m',
+            $result = $this->http->request('POST', self::ENDPOINT, ['auth_bearer' => $this->apiKey, 'json' => [
+                'model' => $this->profile->model, 'input' => $batch,
+                'dimensions' => self::DIMENSIONS, 'encoding_format' => 'float',
             ], 'timeout' => 120, 'max_duration' => 180])->toArray();
-            $vectors = $result['embeddings'] ?? [];
+            $vectors = [];
+            foreach ($result['data'] ?? [] as $item) {
+                $vectors[$item['index'] ?? count($vectors)] = $item['embedding'] ?? null;
+            }
             if (count($vectors) !== count($batch)) {
                 throw new \UnexpectedValueException('Embedding response did not cover every chunk.');
             }
-            foreach ($vectors as $i => $vector) {
+            foreach ($batch as $i => $chunk) {
+                $vector = $vectors[$i] ?? null;
                 if (!self::validVector($vector)) {
                     throw new \UnexpectedValueException('Invalid embedding vector.');
                 }
-                $weight = mb_strlen($batch[$i]);
+                $weight = mb_strlen($chunk);
                 foreach ($vector as $j => $value) {
                     $sum[$j] += $value * $weight;
                 }

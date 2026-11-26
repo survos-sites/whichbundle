@@ -14,14 +14,12 @@ final class RemoteFixtures
 
     public function __invoke(string $method, string $url, array $options = []): MockResponse
     {
-        if (str_ends_with($url, '/api/tags')) {
-            return new MockResponse(json_encode(['models' => [['name' => 'nomic-embed-text:latest', 'digest' => '0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f']]]));
-        }
-        if (str_ends_with($url, '/api/embed')) {
+        if ('https://api.openai.com/v1/embeddings' === $url) {
             $inputs = json_decode($options['body'], true)['input'];
-            $vector = array_fill(0, 768, 0.0);
+            $vector = array_fill(0, 1536, 0.0);
             $vector[0] = 1.0;
-            return new MockResponse(json_encode(['embeddings' => array_fill(0, count($inputs), $vector)]));
+
+            return new MockResponse(json_encode(['data' => array_map(static fn ($i) => ['index' => $i, 'embedding' => $vector], array_keys($inputs))]));
         }
         if ($url === 'https://api.bitbucket.org/2.0/repositories/yaboroda/ybsy-file-bundle') {
             return new MockResponse('', ['http_code' => 404]);
