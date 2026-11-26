@@ -7,13 +7,12 @@ framework:
         # The data in this cache should persist between deploys.
         # Other options include:
 
-        # Redis -- packages' dataset (scraped from Packagist) is refreshed on
-        # a schedule, not per-request, so a shared Redis cache pays off more
-        # than the default filesystem adapter. Dokku's dokku-redis addon
-        # injects REDIS_URL; locally it points at the shared dev stack's
-        # redis container (~/sites/docker), see .env.
-        app: cache.adapter.redis
-        default_redis_provider: '%env(REDIS_URL)%'
+        # PostgreSQL, on the application's own connection (table cache_items, created
+        # on first use). Web and every worker run in separate containers and the
+        # load worker writes from 32 processes at once, so the cache must be shared
+        # and take concurrent writers -- which rules out a SQLite file.
+        app: cache.adapter.doctrine_dbal
+        default_doctrine_dbal_provider: doctrine.dbal.default_connection
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
