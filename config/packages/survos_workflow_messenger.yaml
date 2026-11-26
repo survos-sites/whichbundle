@@ -2,3 +2,9 @@
 survos_workflow_messenger:
     # Transitions of the same package never run concurrently across workers.
     lock_factory: lock.database.factory
+    # One Doctrine queue per async transition, declared by the bundle from the
+    # #[Transition(async: true)] attributes in src/Workflow. The queue is the
+    # messenger_messages table of the application's own PostgreSQL database.
+    transport_dsn: 'doctrine://default'
+    driver: doctrine
+    retry_strategy: { max_retries: 3, multiplier: 2 }

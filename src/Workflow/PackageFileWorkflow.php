@@ -21,7 +21,7 @@ final class PackageFileWorkflow
 {
     public const WORKFLOW_NAME = 'PackageFileWorkflow';
 
-    #[AsyncTransition(PackageFilePlace::Fetched, PackageFilePlace::Extracted, 'Extract headings and commands from the document', async: true, transport: 'bundle.extract')]
+    #[AsyncTransition(PackageFilePlace::Fetched, PackageFilePlace::Extracted, 'Extract headings and commands from the document', async: true, transport: 'bundle.extract', priority: 30)]
     public const TRANSITION_EXTRACT = 'extract';
 
     public function __construct(private readonly PackageFileExtractor $extractor)

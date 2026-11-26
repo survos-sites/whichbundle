@@ -1,7 +1,5 @@
 <?php
 
-use Survos\ElasticBundle\Message\ReindexDocuments;
-use Survos\ElasticBundle\Message\RemoveDocuments;
 use Symfony\Component\DependencyInjection\Loader\Configurator\App;
 
 return App::config([
@@ -11,57 +9,12 @@ return App::config([
             'identity_stamps' => true,
             'failure_transport' => 'failed',
             'transports' => [
-                'bundle.load' => [
-                    'dsn' => '%env(MESSENGER_TRANSPORT_DSN_RABBITMQ)%',
-                    'options' => [
-                        'exchange' => ['name' => 'bundle.load'],
-                        'queues' => ['bundle.load' => null],
-                        // The jwage PR adjusts this to the worker's requested fetch size.
-                        'prefetch_count' => 1,
-                        'delay' => ['durable' => true],
-                    ],
-                    'retry_strategy' => ['max_retries' => 3, 'multiplier' => 2],
-                ],
-                'bundle.fetch.docs' => [
-                    'dsn' => '%env(MESSENGER_TRANSPORT_DSN_RABBITMQ)%',
-                    'options' => [
-                        'prefetch_count' => 1,
-                        'exchange' => ['name' => 'bundle.fetch.docs'],
-                        'queues' => ['bundle.fetch.docs' => null],
-                        'delay' => ['durable' => true],
-                    ],
-                    'retry_strategy' => ['max_retries' => 3, 'multiplier' => 2],
-                ],
-                'bundle.embed' => [
-                    'dsn' => '%env(MESSENGER_TRANSPORT_DSN_RABBITMQ)%',
-                    'options' => [
-                        'prefetch_count' => 1,
-                        'exchange' => ['name' => 'bundle.embed'],
-                        'queues' => ['bundle.embed' => null],
-                        'delay' => ['durable' => true],
-                    ],
-                    'retry_strategy' => ['max_retries' => 3, 'multiplier' => 2],
-                ],
-                'bundle.extract' => [
-                    'dsn' => '%env(MESSENGER_TRANSPORT_DSN_RABBITMQ)%',
-                    'options' => [
-                        'prefetch_count' => 1,
-                        'exchange' => ['name' => 'bundle.extract'],
-                        'queues' => ['bundle.extract' => null],
-                        'delay' => ['durable' => true],
-                    ],
-                    'retry_strategy' => ['max_retries' => 3, 'multiplier' => 2],
-                ],
-                'elastic' => [
-                    'dsn' => '%env(MESSENGER_TRANSPORT_DSN_RABBITMQ)%',
-                    'options' => [
-                        'prefetch_count' => 50,
-                        'exchange' => ['name' => 'packages.elastic'],
-                        'queues' => ['packages.elastic' => null],
-                        'delay' => ['durable' => true],
-                    ],
-                    'retry_strategy' => ['max_retries' => 3, 'multiplier' => 2],
-                ],
+                // The transports of the async workflow transitions (bundle.load, bundle.fetch.docs,
+                // bundle.embed, bundle.extract) are declared by survos/workflow-messenger-bundle
+                // from the #[Transition(async: true)] attributes in src/Workflow; see
+                // config/packages/survos_workflow_messenger.yaml. Add a transport here only
+                // to override one of them.
+                // "elastic" is declared by survos/elastic-bundle; see config/packages/survos_elastic.yaml.
                 'failed' => 'doctrine://default?queue_name=failed&auto_setup=true',
                 'sync' => 'sync://',
             ],
@@ -70,10 +23,6 @@ return App::config([
                 'messenger.bus.default' => [
                     'middleware' => ['logging'],
                 ],
-            ],
-            'routing' => [
-                ReindexDocuments::class => 'elastic',
-                RemoveDocuments::class => 'elastic',
             ],
         ],
     ],

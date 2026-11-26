@@ -25,13 +25,16 @@ use Symfony\Component\Workflow\WorkflowType;
 #[AsWorkflow(supports: [Package::class], name: self::WORKFLOW_NAME, type: WorkflowType::StateMachine, markingProperty: 'state', places: PackagePlace::class, description: 'Load metadata, accept or reject the package, then fetch documentation for accepted bundles')]
 final class PackageWorkflow
 {
+    // Transition priorities order `messenger:consume --all` (higher first): later stages come
+    // first, so packages already in the pipeline finish before new ones are loaded.
+
     // This name is used for injecting the workflow into a controller!
     public const WORKFLOW_NAME = 'PackageWorkflow';
 
-    #[AsyncTransition(PackagePlace::Discovered, PackagePlace::MetadataLoaded, 'Load Packagist metadata', async: true, transport: 'bundle.load')]
-    #[AsyncTransition(PackagePlace::Accepted, PackagePlace::MetadataLoaded, 'Refresh an accepted package', async: true, transport: 'bundle.load')]
-    #[AsyncTransition(PackagePlace::Rejected, PackagePlace::MetadataLoaded, 'Recheck a rejected package', async: true, transport: 'bundle.load')]
-    #[AsyncTransition(PackagePlace::Documented, PackagePlace::MetadataLoaded, 'Refresh metadata and documentation', async: true, transport: 'bundle.load')]
+    #[AsyncTransition(PackagePlace::Discovered, PackagePlace::MetadataLoaded, 'Load Packagist metadata', async: true, transport: 'bundle.load', priority: 10)]
+    #[AsyncTransition(PackagePlace::Accepted, PackagePlace::MetadataLoaded, 'Refresh an accepted package', async: true, transport: 'bundle.load', priority: 10)]
+    #[AsyncTransition(PackagePlace::Rejected, PackagePlace::MetadataLoaded, 'Recheck a rejected package', async: true, transport: 'bundle.load', priority: 10)]
+    #[AsyncTransition(PackagePlace::Documented, PackagePlace::MetadataLoaded, 'Refresh metadata and documentation', async: true, transport: 'bundle.load', priority: 10)]
     public const TRANSITION_LOAD = 'load';
 
     public const array LOAD_TRANSITIONS = [self::TRANSITION_LOAD];
@@ -54,7 +57,7 @@ final class PackageWorkflow
 
     #[AsyncTransition(PackagePlace::Accepted, PackagePlace::Documented,
         'Fetch README and AGENTS for an accepted package',
-        guard: "subject.canonicalAvailable", async: true, transport: 'bundle.fetch.docs')]
+        guard: "subject.canonicalAvailable", async: true, transport: 'bundle.fetch.docs', priority: 20)]
     public const TRANSITION_FETCH_DOCS = 'fetch_docs';
 
     #[Transition(PackagePlace::Documented, PackagePlace::Rejected,
@@ -64,7 +67,7 @@ final class PackageWorkflow
 
     #[AsyncTransition(PackagePlace::Documented, PackagePlace::Documented,
         'Persist an embedding of the README', guard: 'subject.hasReadme && subject.embedding === null',
-        async: true, transport: 'bundle.embed')]
+        async: true, transport: 'bundle.embed', priority: 40)]
     public const TRANSITION_EMBED_README = 'embed_readme';
 
     public function __construct(
