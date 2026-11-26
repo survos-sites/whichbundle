@@ -4,7 +4,7 @@
 web: frankenphp run --config /etc/caddy/Caddyfile
 # Always-on workers, replacing the old app.json `cron` entries (a live consumer
 # beats polling every 2-5min). Declared here, but SCALED OUTSIDE THE DEPLOY:
-#   dokku ps:scale <app> elastic=1 bundle-load=1   |   logs: dokku logs <app> -p elastic -t
+#   dokku ps:scale <app> elastic=1 bundle-load=1 bundle-extract=1 bundle-embed=1   |   logs: dokku logs <app> -p elastic -t
 #
 # The queues are Doctrine transports in the app's own PostgreSQL database
 # (messenger_messages), declared by workflow-messenger-bundle and elastic-bundle:
@@ -35,5 +35,8 @@ elastic: php -d memory_limit=512M bin/console messenger:consume elastic --time-l
 # parallel (Symfony 8.2, needs amphp/parallel). The process type keeps its old name
 # so existing `ps:scale bundle-load=1` settings still apply.
 bundle-load: php -d memory_limit=512M bin/console messenger:consume scheduler_packagist bundle.fetch.docs bundle.load --concurrency=32 --time-limit=3600 --memory-limit=256M
+# Each stored document (README, AGENTS) is read by its own queued transition after
+# fetch_docs; without this worker bundle.extract only grows.
+bundle-extract: php -d memory_limit=512M bin/console messenger:consume bundle.extract --time-limit=3600 --memory-limit=256M
 # Embeddings use the configured local Ollama endpoint; keep this worker serial.
 bundle-embed: php -d memory_limit=512M bin/console messenger:consume bundle.embed --time-limit=3600 --memory-limit=256M
