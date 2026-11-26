@@ -172,6 +172,9 @@
     "survos/ai-batch-bundle": {
         "version": "2.45.71"
     },
+    "survos/ai-chat-bundle": {
+        "version": "2.45.89"
+    },
     "survos/ai-embed-bundle": {
         "version": "2.45.84"
     },
@@ -244,6 +247,27 @@
     },
     "survos/workflow-messenger-bundle": {
         "version": "dev-main"
+    },
+    "symfony/ai-anthropic-platform": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "055b125ba7a6090b155b8b9dcbfabc881460863d"
+        }
+    },
+    "symfony/ai-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "abb8f2c86de009cbc24a3408a3ca7aedc6aaa7c8"
+        },
+        "files": [
+            "config/packages/ai.yaml"
+        ]
     },
     "symfony/ai-open-ai-platform": {
         "version": "1.0",
@@ -360,6 +384,28 @@
         },
         "files": [
             "config/packages/mailer.yaml"
+        ]
+    },
+    "symfony/mattermost-notifier": {
+        "version": "8.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "8.2",
+            "ref": "5d9d3b2594cb1b347370ec866eb6b54c08b4cca1"
+        }
+    },
+    "symfony/mcp-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.13",
+            "ref": "6fbd19b68290f2d5decdb926636484950d185e4b"
+        },
+        "files": [
+            "config/packages/mcp.yaml",
+            "config/routes/mcp.yaml"
         ]
     },
     "symfony/messenger": {

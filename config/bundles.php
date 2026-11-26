@@ -48,4 +48,7 @@ return [
     Survos\MenuBundle\SurvosMenuBundle::class => ['all' => true],
     Symfony\UX\Router\UXRouterBundle::class => ['all' => true],
     Survos\AiEmbedBundle\SurvosAiEmbedBundle::class => ['all' => true],
+    Survos\AiChatBundle\SurvosAiChatBundle::class => ['all' => true],
+    Symfony\AI\AiBundle\AiBundle::class => ['all' => true],
+    Symfony\AI\McpBundle\McpBundle::class => ['all' => true],
 ];

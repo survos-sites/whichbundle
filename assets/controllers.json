@@ -1,5 +1,19 @@
 {
     "controllers": {
+        "@survos/ai-chat-bundle": {
+            "chat": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "voice": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "links": {
+                "enabled": true,
+                "fetch": "eager"
+            }
+        },
         "@survos/api-grid-bundle": {
             "api_grid": {
                 "enabled": true,

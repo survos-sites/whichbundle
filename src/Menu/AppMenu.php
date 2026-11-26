@@ -12,7 +12,7 @@ use Survos\MenuBundle\MenuSlot;
 /**
  * The home page is the faceted search, so the navbar has no links of its own: the logo is Home, GitHub sits in the top
  * row, and the admin tools (messenger monitor, entities, workflows, ...) come from ADMIN_NAVBAR_MENU.
- * Someday: an About page, or an AI chat, in NAVBAR_PRIMARY.
+ * Someday: an About page in NAVBAR_PRIMARY.
  */
 final class AppMenu
 {
@@ -24,7 +24,13 @@ final class AppMenu
         $this->add($event->getMenu(), route: 'survos_workflow_extras', rp: ['flowCode' => \App\Workflow\PackageWorkflow::WORKFLOW_NAME], label: 'Workflow', icon: 'tabler:git-branch', translationDomain: false);
     }
 
-    private const GITHUB = 'https://github.com/survos-sites/packages';
+    #[AsMenuListener(MenuSlot::NAVBAR_PRIMARY)]
+    public function ask(MenuEvent $event): void
+    {
+        $this->add($event->getMenu(), route: 'ask', label: 'Ask', icon: 'tabler:message-chatbot', translationDomain: false);
+    }
+
+    private const GITHUB ='https://github.com/survos-sites/packages';
 
     #[AsMenuListener(MenuSlot::NAVBAR_END)]
     public function github(MenuEvent $event): void

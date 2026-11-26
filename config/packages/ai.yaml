@@ -1,0 +1,27 @@
+# README vectors go through PackageEmbeddingService (Ollama), not this platform.
+ai:
+    platform:
+        anthropic:
+            api_key: '%env(ANTHROPIC_API_KEY)%'
+
+    # The catalog chat (/ask). Its tools call the MCP tools in src/Mcp/PackageTools.php.
+    agent:
+        packages_chat:
+            platform: 'ai.platform.anthropic'
+            model: '%env(PACKAGES_CHAT_MODEL)%'
+            prompt:
+                file: '%kernel.project_dir%/config/prompts/packages-chat.md'
+            tools:
+                - service: 'App\Chat\Tool\FindPackages'
+                  name: 'find_packages'
+                  description: 'Find packages in the catalog for a need in plain words. Arguments: question, limit (1-25), bundlesOnly (only symfony-bundle), includeRejected (also packages failing PHP/Symfony requirements), symfony (a version such as "7.4"). Returns semantic (whether meaning was used) and results: name, description, type, downloads, stars, symfony and php versions, lastRelease, abandoned, status, rejected reason, url, packagist.'
+                - service: 'App\Chat\Tool\GetPackage'
+                  name: 'get_package'
+                  description: 'Read one catalogued package by name (vendor/name): summary, keywords, PHP and Symfony constraints, require list, homepage, source, replacement, and the start of its README.'
+                - service: 'App\Chat\Tool\SearchPackagist'
+                  name: 'search_packagist'
+                  description: 'Search packagist.org itself for packages the catalog does not hold. Arguments: query, type (e.g. "symfony-bundle" or "library"), limit. Returns name, description, downloads, favers, abandoned, packagist link and inCatalog.'
+                - service: 'App\Chat\Tool\CatalogStats'
+                  name: 'catalog_stats'
+                  description: 'Exact catalog counts: packages by status, Symfony bundles, packages with README vectors, rejection reasons. Use for how-many questions.'
+            max_tool_calls: 8

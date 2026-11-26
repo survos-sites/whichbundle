@@ -1,0 +1,20 @@
+# The package catalog over MCP: over HTTP at /mcp, or over stdio with `php bin/console mcp:server packages`.
+mcp:
+    servers:
+        packages:
+            name: Symfony Packages
+            description: Find and compare Symfony bundles and PHP libraries for a need, with Symfony/PHP support, downloads, releases and READMEs.
+            instructions: >-
+                A catalog of about 17,000 Composer packages around Symfony: bundles and the libraries they use, each checked
+                against current PHP and Symfony versions. Start with find_packages for a need in plain words ("TEI XML",
+                "stream large XML with low memory"); set bundlesOnly for bundles, symfony for a version such as "7.4".
+                status "documented" means it meets the requirements; "rejected" packages fail them and are hidden unless
+                includeRejected. get_package reads one package and the start of its README. The catalog does not hold every
+                PHP library: when it has no good answer, or to check well-known libraries, use search_packagist, which
+                searches packagist.org itself (inCatalog says whether the catalog has checked it). Use catalog_stats for counts.
+            registry: 'App\Mcp\'
+            transports:
+                stdio: true
+            http:
+                path: /mcp
+                allowed_hosts: ['localhost', '127.0.0.1', 'packages.wip', 'packages.survos.com']
