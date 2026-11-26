@@ -28,8 +28,8 @@ final class AppMenu
     public function ask(MenuEvent $event): void
     {
         $this->add($event->getMenu(), route: 'ask', label: 'Ask', icon: 'tabler:message-chatbot', translationDomain: false);
-        // Claude, ChatGPT and Claude Code setup for /mcp, from survos/ai-chat-bundle's mcp_connect.html.twig
-        $this->add($event->getMenu(), route: 'ask_connect', label: 'Connect your assistant', icon: 'tabler:plug-connected', translationDomain: false);
+        // Claude, ChatGPT and Claude Code setup for /mcp, the page and route come from survos/ai-chat-bundle (config/packages/survos_ai_chat.yaml)
+        $this->add($event->getMenu(), route: 'survos_ai_chat_connect', label: 'Connect your assistant', icon: 'tabler:plug-connected', translationDomain: false);
     }
 
     private const GITHUB ='https://github.com/survos-sites/packages';

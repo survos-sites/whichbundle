@@ -1,0 +1,22 @@
+# The "Connect your own AI agent" page for the MCP server (config/packages/mcp.yaml), at /ask/connect.
+survos_ai_chat:
+    connect:
+        public_url: '%env(PACKAGES_PUBLIC_URL)%'
+        back_route: ask
+        back_label: Ask the catalog
+        page:
+            name: Symfony Packages
+            server: packages
+            checkout: packages
+            lead: Find Symfony bundles and PHP libraries for a need, with their Symfony and PHP support, downloads, releases and READMEs, from your own AI assistant. The connector is read-only and needs no account.
+            claude_code_prompt: Use packages to find a memory-friendly XML parser for TEI documents in a Symfony 7.4 app.
+            tool_descriptions:
+                find_packages: Find packages for a need in plain words (“stream large XML files”). Optionally only bundles, only a Symfony version, or also outdated (rejected) packages.
+                get_package: 'Read one package by name: constraints, require list, links and the start of its README.'
+                search_packagist: Search packagist.org itself, for libraries the catalog does not hold; says whether each is catalogued.
+                catalog_stats: Exact counts of packages by status, bundles and rejection reasons.
+            tools_note: These tools read the catalog; they do not change it.
+            prompt: Use Symfony Packages to recommend what to use in a Symfony 7.4 app that manages TEI-encoded XML, with memory-friendly parsing. Say whether a dedicated bundle exists, give downloads and last release for each option, and warn about abandoned ones.
+            check: 'For a quick connection check, ask your agent to call get_package with name prewk/xml-string-streamer. It should return “Stream large XML files with low memory consumption”.'
+            footnotes:
+                - The catalog covers Symfony bundles and the libraries around them, not every PHP library; search_packagist covers the rest.
