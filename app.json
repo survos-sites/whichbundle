@@ -14,8 +14,7 @@
     },
     "addons": [
         "dokku-postgres",
-        "dokku-redis",
-        "dokku-rabbitmq"
+        "dokku-redis"
     ],
     "healthchecks": {
         "web": [

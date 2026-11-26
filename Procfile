@@ -6,12 +6,15 @@ web: frankenphp run --config /etc/caddy/Caddyfile
 # beats polling every 2-5min). Declared here, but SCALED OUTSIDE THE DEPLOY:
 #   dokku ps:scale <app> elastic=1 bundle-load=1   |   logs: dokku logs <app> -p elastic -t
 #
+# The queues are Doctrine transports in the app's own PostgreSQL database
+# (messenger_messages), declared by workflow-messenger-bundle and elastic-bundle:
+# there is no broker to provision or to be unreachable.
+#
 # Scaling outside the deploy is deliberate. Dokku healthchecks every scaled process
 # type, and these have no healthcheck of their own, so they are judged on "did the
-# container stay up" -- which a messenger:consume against an unreachable transport
-# does not. Scaled during the deploy, a broken RabbitMQ would fail the release of a
-# web app that was perfectly healthy. Scaled outside it, the same breakage degrades
-# background processing and leaves deploys alone. The app.json predeploy runs
+# container stay up". Scaled during the deploy, a worker that exits early would fail
+# the release of a web app that was perfectly healthy. Scaled outside it, the same
+# breakage degrades background processing and leaves deploys alone. The app.json predeploy runs
 # `mess:stop` so the running consumers retire and pick up the new release instead of
 # holding the old code.
 #
