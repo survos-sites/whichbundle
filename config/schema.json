@@ -17997,42 +17997,9 @@
                         "description": "Prepend {_locale} (constrained to kernel.enabled_locales) to this bundle's route prefix, e.g. /{_locale}/f instead of /f -- for bundles whose routes are meant to be shared/bookmarked, so the URL itself carries the locale instead of a query param."
                     },
                     "connect": {
-                        "$ref": "#/$defs/types/object_null",
-                        "properties": {
-                            "layout": {
-                                "$ref": "#/$defs/types/scalar",
-                                "default": "base.html.twig",
-                                "description": "Template the page extends; it fills the \"title\" and \"body\" blocks."
-                            },
-                            "public_url": {
-                                "$ref": "#/$defs/types/scalar",
-                                "default": null,
-                                "description": "Public base URL of the site; /mcp is appended. Default: the request's scheme and host."
-                            },
-                            "back_route": {
-                                "$ref": "#/$defs/types/scalar",
-                                "default": null,
-                                "description": "Route of the back link, e.g. the app's chat page."
-                            },
-                            "back_label": {
-                                "$ref": "#/$defs/types/scalar",
-                                "default": null
-                            },
-                            "page": {
-                                "$ref": "#/$defs/types/variable",
-                                "default": [],
-                                "description": "Variables of @SurvosAiChat/mcp_connect.html.twig: name (required), server, lead, prompt, check, claude_code_prompt, hidden_tools, tool_descriptions, footnotes, ... (see the README)."
-                            }
-                        },
-                        "additionalProperties": false,
-                        "default": {
-                            "layout": "base.html.twig",
-                            "public_url": null,
-                            "back_route": null,
-                            "back_label": null,
-                            "page": []
-                        },
-                        "description": "The \"Connect your own AI agent\" page at /ask/connect (route survos_ai_chat_connect)."
+                        "$ref": "#/$defs/types/variable",
+                        "default": [],
+                        "description": "Variables of @SurvosAiChat/mcp_connect.html.twig for the page at /ask/connect: name (required), server, lead, prompt, ... (see the README)."
                     }
                 },
                 "additionalProperties": false
