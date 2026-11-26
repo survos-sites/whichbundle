@@ -7,4 +7,5 @@ survos_workflow_messenger:
     # messenger_messages table of the application's own PostgreSQL database.
     transport_dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
     driver: doctrine
-    retry_strategy: { max_retries: 3, multiplier: 2 }
+    # Remote rate limits last minutes, not seconds: 30 s, 2 min, 8 min, 32 min, 1 h.
+    retry_strategy: { max_retries: 5, delay: 30000, multiplier: 4, max_delay: 3600000 }

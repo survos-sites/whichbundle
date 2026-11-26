@@ -15,6 +15,11 @@ return App::config([
                 // config/packages/survos_workflow_messenger.yaml. Add a transport here only
                 // to override one of them.
                 // "elastic" is declared by survos/elastic-bundle; see config/packages/survos_elastic.yaml.
+                // Both call GitHub. When it rate-limits (HTTP 429), stop consuming the queue for a
+                // while instead of spending every message's retries: five failures in a row pause
+                // it for a minute, doubling up to fifteen. Merged over the declared transports.
+                'bundle.load' => ['cooldown_strategy' => ['failure_threshold' => 5, 'delay' => 60_000, 'multiplier' => 2, 'max_delay' => 900_000]],
+                'bundle.fetch.docs' => ['cooldown_strategy' => ['failure_threshold' => 5, 'delay' => 60_000, 'multiplier' => 2, 'max_delay' => 900_000]],
                 'failed' => 'doctrine://default?queue_name=failed&auto_setup=true',
                 'sync' => 'sync://',
             ],
