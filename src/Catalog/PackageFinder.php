@@ -23,6 +23,13 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 final readonly class PackageFinder
 {
     private const int RRF_K = 60;
+    /**
+     * kNN hits below this cosine similarity are dropped. nomic-embed-text scores are compressed (unrelated
+     * packages still reach ~0.6), so the floor only cuts the tail; MEANING_WEIGHT does the rest.
+     */
+    private const float MIN_SIMILARITY = 0.60;
+    /** A meaning-only hit counts half a keyword hit, so it ranks below packages that also match the words. */
+    private const float MEANING_WEIGHT = 0.5;
     private const int README_EXCERPT = 6000;
 
     private string $es;
@@ -76,7 +83,7 @@ final readonly class PackageFinder
             $semantic = $this->ids($this->prefix.'package_semantic', [
                 'size' => $depth,
                 '_source' => false,
-                'knn' => ['field' => 'embedding', 'query_vector' => $vector, 'k' => $depth, 'num_candidates' => 400, 'filter' => $filters ?: null],
+                'knn' => ['field' => 'embedding', 'query_vector' => $vector, 'k' => $depth, 'num_candidates' => 400, 'similarity' => self::MIN_SIMILARITY, 'filter' => $filters ?: null],
             ]);
         } catch (\Throwable $e) {
             $this->logger->warning('Package search fell back to keywords: {message}', ['message' => $e->getMessage()]);
@@ -85,7 +92,8 @@ final readonly class PackageFinder
         $scores = [];
         foreach (['keywords' => $lexical, 'meaning' => $semantic] as $source => $ids) {
             foreach ($ids as $rank => $id) {
-                $scores[$id]['score'] = ($scores[$id]['score'] ?? 0) + 1 / (self::RRF_K + $rank + 1);
+                $weight = 'meaning' === $source ? self::MEANING_WEIGHT : 1.0;
+                $scores[$id]['score'] = ($scores[$id]['score'] ?? 0) + $weight / (self::RRF_K + $rank + 1);
                 $scores[$id]['matchedBy'][] = $source;
             }
         }
