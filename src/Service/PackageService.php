@@ -22,6 +22,9 @@ class PackageService
     private VersionParser $parser;
     private Client $client;
 
+    /** PHP versions a package must support one of; 8.2 leaves security support on 2026-12-31. */
+    public const array PHP_VERSIONS = ['8.3', '8.4', '8.5', '8.6'];
+
     public function __construct(
         private readonly LoggerInterface $logger,
         private readonly SerializerInterface $serializer,
@@ -76,7 +79,7 @@ class PackageService
 
         if ($constraint = $data->get('require.php')) {
             $package->phpVersionString = $constraint;
-            $package->phpVersions = $this->constraintComplies($constraint, ['8.3', '8.4', '8.5']);
+            $package->phpVersions = $this->constraintComplies($constraint, self::PHP_VERSIONS);
         }
 
         // Check declared core constraints for libraries and bundles alike.
