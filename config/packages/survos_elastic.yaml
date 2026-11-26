@@ -1,6 +1,6 @@
 survos_elastic:
     # ReindexDocuments / RemoveDocuments name the "elastic" transport themselves; the
     # bundle declares it. Consume with: bin/console messenger:consume elastic
-    transport_dsn: 'doctrine://default'
+    transport_dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
     driver: doctrine
     retry_strategy: { max_retries: 3, multiplier: 2 }

@@ -5,6 +5,6 @@ survos_workflow_messenger:
     # One Doctrine queue per async transition, declared by the bundle from the
     # #[Transition(async: true)] attributes in src/Workflow. The queue is the
     # messenger_messages table of the application's own PostgreSQL database.
-    transport_dsn: 'doctrine://default'
+    transport_dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
     driver: doctrine
     retry_strategy: { max_retries: 3, multiplier: 2 }
