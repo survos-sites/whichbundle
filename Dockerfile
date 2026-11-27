@@ -21,13 +21,6 @@ RUN install-php-extensions \
         sockets \
         zip
 
-# survos/ai-duckdb-store (the /ask catalog search) needs the native DuckDB PDO driver.
-# Same install as fotostory and harvest.
-COPY --from=ghcr.io/php/pie:bin /pie /usr/local/bin/pie
-RUN pie install thomas-0816/pdo-duckdb-php:2.0.1.0 \
-    && rm /usr/local/bin/pie \
-    && php -r '$db = new PDO("duckdb::memory:"); echo $db->query("SELECT version()")->fetchColumn();'
-
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY docker/php.ini $PHP_INI_DIR/conf.d/app.ini
 

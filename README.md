@@ -10,7 +10,7 @@ It is also the reference example for [`survos/schema-org-bundle`](https://github
 Configure a Postgres database and set it in .env.local, then run
 
 ```bash
-git clone git@github.com:survos-sites/packages.git && cd packages
+git clone git@github.com:survos-sites/whichbundle.git wb && cd wb
 bin/console list
 
 ```
@@ -287,16 +287,16 @@ are fingerprinted; stale/rejected vectors map to null, and vectors/provenance ar
 excluded from public hit fields. Provenance uses an opaque JSON scalar so automatic
 scalar field inference does not expose it through the original browser either.
 
-Set `PACKAGE_OLLAMA_URL`, `PACKAGE_EMBED_MODEL` and `PACKAGE_EMBED_REVISION` for the
-local embedding service. The model digest is verified. Full normalized READMEs are
-split into 1,500-character chunks, embedded with the Nomic document prefix, combined
-with character-weighted mean pooling and normalized. Query text uses the query prefix.
+This app is the reference for vectors stored with Doctrine: one pooled vector per package in
+`package.embedding`, copied into Elasticsearch at index time. For the other design, vectors kept
+outside the database in an ai-embed-bundle DuckDB sidecar with S3 snapshots, see kpa.
+
+README vectors come from OpenAI `text-embedding-3-small` (1536 dimensions): set
+`OPENAI_API_KEY`, `PACKAGE_EMBED_MODEL` and `PACKAGE_EMBED_REVISION`. Full normalized
+READMEs are split into 6,000-character chunks and the chunk vectors are mean-pooled.
 No input is silently truncated. A profile change requires regeneration and reindexing.
 `app:packages:embed` is resumable and skips valid cached vectors.
 
-### Cached per-file embeddings
-
-The local [PackageFile embedding pilot](docs/embeddings/README.md) uses ai-embed-bundle, heading/paragraph/token-aware chunks and a durable DuckDB cache for README, AGENTS and docs files. Existing averaged package vectors remain available as the baseline. The seven-file fixture proves that reloading its records restores all 156 chunk vectors without model calls.
 
 ### Clustering experiment
 

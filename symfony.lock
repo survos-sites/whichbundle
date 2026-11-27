@@ -169,14 +169,8 @@
             "config/packages/sentry.yaml"
         ]
     },
-    "survos/ai-batch-bundle": {
-        "version": "2.45.71"
-    },
     "survos/ai-chat-bundle": {
         "version": "2.45.89"
-    },
-    "survos/ai-embed-bundle": {
-        "version": "2.45.84"
     },
     "survos/api-grid-bundle": {
         "version": "2.19.2"
@@ -268,15 +262,6 @@
         "files": [
             "config/packages/ai.yaml"
         ]
-    },
-    "symfony/ai-open-ai-platform": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "0.1",
-            "ref": "1815c0412f5ef5da5f924ea5fe84ebd6a5422476"
-        }
     },
     "symfony/asset-mapper": {
         "version": "7.3",
