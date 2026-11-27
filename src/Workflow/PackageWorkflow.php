@@ -66,7 +66,7 @@ final class PackageWorkflow
     public const TRANSITION_README_MISSING = 'readme_missing';
 
     #[AsyncTransition(PackagePlace::Documented, PackagePlace::Documented,
-        'Persist an embedding of the README', guard: 'subject.hasReadme && subject.embedding === null',
+        'Persist an embedding of the README', guard: 'subject.hasReadme && subject.isModern && subject.embedding === null',
         async: true, transport: 'bundle.embed', priority: 40)]
     public const TRANSITION_EMBED_README = 'embed_readme';
 

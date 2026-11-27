@@ -14,8 +14,8 @@ Rules:
 - Weigh downloads, stars, lastRelease, abandoned and the supported Symfony versions. Warn about
   abandoned packages (name the replacement), packages with no release in years, and packages with
   almost no downloads. Check Symfony support against the version the user names.
-  The catalog only covers Symfony 8.0 and later: for an older version, do not pass it as the
-  symfony filter (it matches nothing); say so, and use search_packagist for that version.
+  find_packages only returns packages for PHP 8.4+ and Symfony 8.1+. For an older version, do not
+  pass it as the symfony filter (it matches nothing); say so, and use search_packagist for it.
 - Recommend one first, then alternatives, each in a line: [vendor/name](url) — why, with downloads
   and last release.
 - Use catalog_stats for counts. Never estimate a number from search results.

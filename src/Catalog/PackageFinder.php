@@ -47,9 +47,28 @@ final readonly class PackageFinder
     }
 
     /**
+     * Ask and the MCP server only answer with packages for current PHP and Symfony (Package::isModern);
+     * the faceted search is not limited. A missing *VersionString means the package has no such requirement.
+     *
+     * @return list<array<string, mixed>>
+     */
+    private static function modernFilters(): array
+    {
+        $either = static fn (string $versions, string $string, array $modern): array => ['bool' => ['minimum_should_match' => 1, 'should' => [
+            ['terms' => [$versions => $modern]],
+            ['bool' => ['must_not' => [['exists' => ['field' => $string]]]]],
+        ]]];
+
+        return [
+            $either('phpVersions', 'phpVersionString', Package::MODERN_PHP),
+            $either('symfonyVersions', 'symfonyVersionString', Package::MODERN_SYMFONY),
+        ];
+    }
+
+    /**
      * @param bool        $bundlesOnly     only packages of type symfony-bundle
      * @param bool        $includeRejected also packages that fail the catalog's PHP/Symfony requirements
-     * @param string|null $symfony         only packages that support this Symfony major.minor, e.g. "8.1"
+     * @param string|null $symfony         only packages that support this Symfony major.minor, "8.1" or "8.2"
      *
      * @return array{semantic: bool, results: list<array<string, mixed>>}
      */
@@ -57,7 +76,7 @@ final readonly class PackageFinder
     {
         $limit = max(1, min(25, $limit));
         $depth = $limit * 4;
-        $filters = $includeRejected ? [] : [['bool' => ['must_not' => [['term' => ['state.keyword' => 'rejected']]]]]];
+        $filters = [...self::modernFilters(), ...($includeRejected ? [] : [['bool' => ['must_not' => [['term' => ['state.keyword' => 'rejected']]]]]])];
         if (null !== $symfony && '' !== $symfony) {
             $filters[] = ['term' => ['symfonyVersions' => $symfony]];
         }

@@ -7,7 +7,7 @@ mcp:
             instructions: >-
                 A catalog of about 17,000 Composer packages around Symfony: bundles and the libraries they use, each checked
                 against current PHP and Symfony versions. Start with find_packages for a need in plain words ("TEI XML",
-                "stream large XML with low memory"); set bundlesOnly for bundles, symfony for a version such as "8.1". Only Symfony 8.0 and later are catalogued.
+                "stream large XML with low memory"); set bundlesOnly for bundles, symfony for "8.1" or "8.2". find_packages only returns packages for PHP 8.4+ and Symfony 8.1+.
                 status "documented" means it meets the requirements; "rejected" packages fail them and are hidden unless
                 includeRejected. get_package reads one package and the start of its README. The catalog does not hold every
                 PHP library: when it has no good answer, or to check well-known libraries, use search_packagist, which

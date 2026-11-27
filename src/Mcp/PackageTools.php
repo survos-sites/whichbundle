@@ -21,13 +21,14 @@ final readonly class PackageTools
      * with low memory", "Meilisearch for Symfony" or "convert markdown to HTML". Ranks by keywords over
      * name, description and README, and by meaning when the embedding service is up ("semantic" says
      * which). Each result has name, description, type (symfony-bundle or library), downloads, stars,
-     * supported Symfony and PHP versions, last release date, abandoned, status and links.
+     * supported Symfony and PHP versions, last release date, abandoned, status and links. Only packages
+     * for PHP 8.4+ and Symfony 8.1+ are returned (Symfony-free libraries count when their PHP fits).
      *
      * @param string      $question        What the package should do, in plain words
      * @param int         $limit           Maximum number of packages (1 to 25)
      * @param bool        $bundlesOnly     Only Symfony bundles (type symfony-bundle), not plain libraries
      * @param bool        $includeRejected Also packages that fail the catalog's PHP/Symfony requirements (outdated)
-     * @param string|null $symfony         Only packages supporting this Symfony version, e.g. "8.0" or "8.1" (the catalog covers Symfony 8.0 and later)
+     * @param string|null $symfony         Only packages supporting this Symfony version, "8.1" or "8.2"
      *
      * @return array<string, mixed>
      */

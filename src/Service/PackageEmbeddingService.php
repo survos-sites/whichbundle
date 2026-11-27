@@ -44,9 +44,10 @@ final class PackageEmbeddingService implements EmbeddingProviderInterface
             && array_any($vector, static fn ($v): bool => $v != 0);
     }
 
+    /** Only modern packages are embedded and indexed for meaning (Package::isModern), to keep the bill to what Ask and MCP use. */
     public function cachedVector(Package $package): ?array
     {
-        return $package->state === 'documented' && $this->isCurrent($package) ? $package->embedding : null;
+        return $package->state === 'documented' && $package->isModern && $this->isCurrent($package) ? $package->embedding : null;
     }
 
     public function isCurrent(Package $package): bool
@@ -114,13 +115,13 @@ final class PackageEmbeddingService implements EmbeddingProviderInterface
         return array_map(static fn ($v) => $v / $norm, $sum);
     }
 
-    #[AsCommand('app:packages:embed', 'Generate missing/stale README vectors from stored content; safely resumable')]
+    #[AsCommand('app:packages:embed', 'Generate missing/stale README vectors for modern packages (PHP 8.4+, Symfony 8.1+); safely resumable')]
     public function backfill(SymfonyStyle $io, #[Option('Generate at most this many vectors; zero means all')] int $limit = 0): int
     {
         if ($limit < 0) { throw new \InvalidArgumentException('Limit must be nonnegative.'); }
         $generated = $reused = 0;
         foreach ($this->em->createQuery("SELECT p FROM App\\Entity\\Package p WHERE p.state = 'documented' ORDER BY p.id")->toIterable() as $package) {
-            if (!$package->hasReadme) { $this->em->detach($package); continue; }
+            if (!$package->hasReadme || !$package->isModern) { $this->em->detach($package); continue; }
             if ($this->cachedVector($package) !== null) {
                 ++$reused;
             } else {

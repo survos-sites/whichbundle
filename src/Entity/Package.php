@@ -181,6 +181,18 @@ class Package implements RouteParametersInterface, \Stringable
         get => is_null($this->phpVersions) ? null : !empty($this->phpVersions);
     }
 
+    /**
+     * The versions Ask, the MCP server and README embeddings cover; the faceted search covers every package.
+     * A package without a PHP or Symfony requirement (a Symfony-free library) counts as modern on that axis.
+     */
+    public const array MODERN_PHP = ['8.4', '8.5', '8.6'];
+    public const array MODERN_SYMFONY = ['8.1', '8.2'];
+
+    public bool $isModern {
+        get => (null === $this->phpVersionString || [] !== array_intersect($this->phpVersions ?? [], self::MODERN_PHP))
+            && (null === $this->symfonyVersionString || [] !== array_intersect($this->symfonyVersions ?? [], self::MODERN_SYMFONY));
+    }
+
     #[Groups(['package.read'])]
     public string $phpCompatibility {
         get => $this->phpVersions === null ? 'unknown' : ($this->phpVersionString === null ? 'not_applicable' : ($this->hasValidPhpVersion ? 'compatible' : 'incompatible'));
