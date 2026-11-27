@@ -47,3 +47,6 @@ node_modules
 
 # Local Symfony configuration types (composer config:reference)
 /config/reference.php
+
+# doc:screenshots output (survos/doc-bundle)
+/public/screenshots/
