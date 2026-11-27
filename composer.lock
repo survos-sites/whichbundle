@@ -8373,16 +8373,16 @@
         },
         {
             "name": "survos/kit-bundle",
-            "version": "2.45.93",
+            "version": "2.45.94",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/kit-bundle.git",
-                "reference": "31718445a6808da85e339a30806c7b8db24e8190"
+                "reference": "21bd3730d6ebbf737149831356d00a26f0030e09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/kit-bundle/zipball/31718445a6808da85e339a30806c7b8db24e8190",
-                "reference": "31718445a6808da85e339a30806c7b8db24e8190",
+                "url": "https://api.github.com/repos/survos/kit-bundle/zipball/21bd3730d6ebbf737149831356d00a26f0030e09",
+                "reference": "21bd3730d6ebbf737149831356d00a26f0030e09",
                 "shasum": ""
             },
             "require": {
@@ -8429,7 +8429,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/kit-bundle/issues",
-                "source": "https://github.com/survos/kit-bundle/tree/2.45.93"
+                "source": "https://github.com/survos/kit-bundle/tree/2.45.94"
             },
             "funding": [
                 {
@@ -8437,8 +8437,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-26T12:52:31+00:00",
-            "published-time": "2026-11-26T12:53:02+00:00"
+            "time": "2026-11-27T11:37:00+00:00",
+            "published-time": "2026-11-27T11:37:05+00:00"
         },
         {
             "name": "survos/lingua-core",
@@ -22301,19 +22301,20 @@
         },
         {
             "name": "survos/doc-bundle",
-            "version": "2.44.0",
+            "version": "2.45.94",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/doc-bundle.git",
-                "reference": "59e4bcd2bb78d1ae8e4d2a9a0d679d2718fe85fb"
+                "reference": "2562afa2e3b5624ee8dcfff7b67135f092b83df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/doc-bundle/zipball/59e4bcd2bb78d1ae8e4d2a9a0d679d2718fe85fb",
-                "reference": "59e4bcd2bb78d1ae8e4d2a9a0d679d2718fe85fb",
+                "url": "https://api.github.com/repos/survos/doc-bundle/zipball/2562afa2e3b5624ee8dcfff7b67135f092b83df9",
+                "reference": "2562afa2e3b5624ee8dcfff7b67135f092b83df9",
                 "shasum": ""
             },
             "require": {
+                "chrome-php/chrome": "^1.16",
                 "davidbadura/markdown-builder": "^1.1",
                 "nadar/php-composer-reader": "^2.0",
                 "php": "^8.5",
@@ -22332,14 +22333,12 @@
                 "jawira/doctrine-diagram-bundle": "^2.0",
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^13.0",
-                "playwright-php/playwright": "^1.5",
                 "symfony/framework-bundle": "^8.1",
                 "symfony/routing": "^8.1"
             },
             "suggest": {
                 "behat/behat": "For running the Behat feature tests (no Symfony 8 compatible release yet)",
                 "friends-of-behat/symfony-extension": "Symfony integration for Behat (requires behat/behat)",
-                "playwright-php/playwright": "Needed by doc:screenshot (also run vendor/bin/playwright-install chromium)",
                 "survos/state-bundle": "Richer doc:workflows diagrams that honor Survos place/transition metadata",
                 "symfony/process": "Lets doc:workflows render .svg diagrams via graphviz \"dot\"",
                 "symfony/workflow": "Required by the doc:workflows command to document registered workflows"
@@ -22364,7 +22363,7 @@
             "description": "Build Sphinx documentation for a Symfony project, using Twig templates",
             "support": {
                 "issues": "https://github.com/survos/doc-bundle/issues",
-                "source": "https://github.com/survos/doc-bundle/tree/2.44.0"
+                "source": "https://github.com/survos/doc-bundle/tree/2.45.94"
             },
             "funding": [
                 {
@@ -22372,8 +22371,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-26T16:09:39+00:00",
-            "published-time": "2026-10-26T16:09:50+00:00"
+            "time": "2026-11-27T11:36:26+00:00",
+            "published-time": "2026-11-27T11:37:06+00:00"
         },
         {
             "name": "survos/supervisor-bundle",
