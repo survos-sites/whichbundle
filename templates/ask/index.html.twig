@@ -5,6 +5,21 @@
     <div class="col-lg-9">
         <h1>Ask the catalog</h1>
         <p class="text-muted">Which bundle or library fits a need, answered from the package catalog and Packagist.</p>
+        {% if not chatReady %}
+            <div class="alert alert-warning">The assistant is not set up yet: <code>ANTHROPIC_API_KEY</code> is not set{% if app.environment == 'dev' %} (add it to <code>.env.local</code>){% endif %}.</div>
+        {% endif %}
+        {% if app.environment == 'dev' or is_granted('ROLE_ADMIN') %}
+            <div class="card card-body small mb-3 bg-light">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">Chat agent</dt>
+                    <dd class="col-sm-9">{{ setup.chat.platform }} <code>{{ setup.chat.model }}</code>
+                        {% if setup.chat.keySet %}<span class="badge bg-success">key set</span>{% else %}<span class="badge bg-danger"><code class="text-white">{{ setup.chat.env }}</code> missing</span>{% endif %}</dd>
+                    <dt class="col-sm-3">Embedder</dt>
+                    <dd class="col-sm-9 mb-0">{{ setup.embedder.platform }} <code>{{ setup.embedder.model }}</code>, {{ setup.embedder.dimensions }} dimensions
+                        {% if setup.embedder.keySet %}<span class="badge bg-success">key set</span>{% else %}<span class="badge bg-danger"><code class="text-white">{{ setup.embedder.env }}</code> missing</span>{% endif %}</dd>
+                </dl>
+            </div>
+        {% endif %}
         {% for turn in turns %}
             <div class="card mb-3" {% if loop.last %}id="latest"{% endif %}>
                 <div class="card-header bg-light"><strong>{{ turn.question }}</strong></div>
@@ -34,7 +49,7 @@
             <label class="form-label" for="question">Your question</label>
             <textarea class="form-control mb-2" id="question" name="question" rows="2" maxlength="1000" required autofocus></textarea>
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary">Ask</button>
+                <button type="submit" class="btn btn-primary" {{ chatReady ? '' : 'disabled' }}>Ask</button>
             </div>
         </form>
         {% if turns|length %}

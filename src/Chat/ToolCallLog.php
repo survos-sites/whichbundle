@@ -29,7 +29,17 @@ final class ToolCallLog
     {
         $result = $event->getResult()->getResult();
         $this->calls[] = ['name' => $event->getDefinition()->getName(), 'arguments' => $event->getArguments(),
-            'results' => is_array($result) && array_is_list($result) ? count($result) : null, 'failed' => false];
+            'results' => self::count($result), 'failed' => false];
+    }
+
+    /** A list counts its items; find_packages returns {semantic, results: [...]}. */
+    private static function count(mixed $result): ?int
+    {
+        return match (true) {
+            is_array($result) && array_is_list($result) => count($result),
+            is_array($result) && is_array($result['results'] ?? null) => count($result['results']),
+            default => null,
+        };
     }
 
     #[AsEventListener]

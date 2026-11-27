@@ -1,4 +1,4 @@
-# README vectors go through PackageEmbeddingService (Ollama), not this platform.
+# README vectors go through PackageEmbeddingService (OpenAI), not this platform.
 ai:
     platform:
         anthropic:
