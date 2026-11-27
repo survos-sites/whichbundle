@@ -6,14 +6,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Workflow\PackagePlace;
-
 use App\Entity\Package;
 use App\Schema\PackageSchema;
+use App\Workflow\PackagePlace;
 use App\Workflow\PackageWorkflow;
 use Doctrine\ORM\EntityManagerInterface;
 use League\CommonMark\CommonMarkConverter;
 use Nadar\PhpComposerReader\ComposerReader;
+use Survos\DocBundle\Attribute\Screenshot;
 use Survos\WorkflowExtrasBundle\Contract\TransitionExecutorInterface;
 use Survos\WorkflowExtrasBundle\Service\NextTransitionRunner;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
+
 
 #[Route('/package/{packageId}')]
 class PackageController extends AbstractController
@@ -35,6 +36,7 @@ class PackageController extends AbstractController
     ) {
     }
 
+    #[Screenshot('package', params: ['packageId' => 'survos--barcode-bundle'], caption: 'A package page')]
     #[Route('/transition/{transition}', name: 'package_transition', options: ['expose' => true], methods: [Request::METHOD_POST])]
     #[Route('/', name: 'package_show', options: ['expose' => true], methods: [Request::METHOD_GET])]
     public function show(

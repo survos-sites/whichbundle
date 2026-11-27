@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Survos\DocBundle\Attribute\Screenshot;
 use Survos\SearchBundle\Search\SearchProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -24,6 +25,7 @@ final class SearchController extends AbstractController
         'sourceType' => 'Source',
     ];
 
+    #[Screenshot('home', caption: 'Faceted search', wait: '.ais-Hits, .hits, [data-controller]')]
     #[Route('/', name: 'app_homepage', methods: ['GET'])]
     public function index(
         SearchProvider $provider,
@@ -43,6 +45,7 @@ final class SearchController extends AbstractController
         ]);
     }
 
+    #[Screenshot('semantic-search', caption: 'Search by meaning')]
     #[Route('/semantic-search', name: 'app_semantic_search', methods: ['GET'])]
     public function semantic(): Response
     {
