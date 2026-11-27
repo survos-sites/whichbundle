@@ -8,7 +8,7 @@ framework:
     # TLS terminates at the dokku/Cloudflare proxy and reaches the container as plain
     # HTTP. Without trusting the proxy, Symfony ignores X-Forwarded-Proto and builds
     # http:// absolute URLs -- which is how every @id in this app's JSON-LD came out as
-    # http://packages.survos.com/... on an https site. @ids are identities, so an
+    # http://whichbundle.org/... on an https site. @ids are identities, so an
     # http:// one names a different resource than the page it describes.
     # See CONVENTIONS.md, "Reverse proxy / trusted_proxies".
     trusted_proxies: '%env(default:default_trusted_proxies:TRUSTED_PROXIES)%'
@@ -26,12 +26,12 @@ framework:
     #fragments: true
     router:
         # ...
-        default_uri: 'https://packages.survos.com/'
+        default_uri: 'https://whichbundle.org/'
 
 when@dev:
     framework:
         router:
-            default_uri: 'https://packages.wip/'
+            default_uri: 'https://wb.wip/'
 
 when@test:
     framework:
@@ -39,5 +39,5 @@ when@test:
         session:
             storage_factory_id: session.storage.factory.mock_file
         router:
-            default_uri: 'https://packages.wip/'
+            default_uri: 'https://wb.wip/'
 

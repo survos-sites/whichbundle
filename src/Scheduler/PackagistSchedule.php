@@ -32,6 +32,8 @@ final class PackagistSchedule implements ScheduleProviderInterface
     {
         return (new Schedule())
             ->add(RecurringMessage::every('5 minutes', new RunCommandMessage('app:packagist:changes')))
+            // The /ask page promises saved questions are deleted after ChatTurn::RETENTION_DAYS.
+            ->add(RecurringMessage::every('1 day', new RunCommandMessage('app:chat:purge')))
             // Leader election: Scheduler keeps this lock for the worker's lifetime, so
             // with several consumers only one generates ticks. A PostgreSQL session lock
             // has no TTL and is freed when that worker's connection closes.

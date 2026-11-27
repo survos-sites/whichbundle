@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Symfony bundles{% endblock %}
+{% block title %}whichBundle: Symfony bundles{% endblock %}
 {# The page IS the search, so no 'Search' page header: the results start right under the navbar. #}
 {% do page({show_page_header: false}) %}
 {% block stylesheets %}{{ parent() }}<link rel="stylesheet" href="{{ asset('styles/search.css') }}">{% endblock %}

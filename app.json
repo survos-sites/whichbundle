@@ -5,7 +5,7 @@
         "php",
         "symfony"
     ],
-    "repository": "https://github.com/survos-sites/packages",
+    "repository": "https://github.com/survos-sites/whichbundle",
     "scripts": {
         "dokku": {
             "predeploy": "sh -c 'bin/console messenger:stop-workers && bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration'",

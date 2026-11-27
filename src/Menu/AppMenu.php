@@ -32,7 +32,7 @@ final class AppMenu
         $this->add($event->getMenu(), route: 'survos_ai_chat_connect', label: 'Connect your assistant', icon: 'tabler:plug-connected', translationDomain: false);
     }
 
-    private const GITHUB ='https://github.com/survos-sites/packages';
+    private const GITHUB ='https://github.com/survos-sites/whichbundle';
 
     #[AsMenuListener(MenuSlot::NAVBAR_END)]
     public function github(MenuEvent $event): void

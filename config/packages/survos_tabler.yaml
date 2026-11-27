@@ -12,6 +12,6 @@ survos_tabler:
 #    showAppMenu: true
   app:
     code: bundles
-    abbr: symfony<b>Bundles</b>
+    abbr: which<b>Bundle</b>
   favicon:
-    text: SB
+    text: WB

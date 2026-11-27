@@ -27,7 +27,7 @@ final readonly class PackageTools
      * @param int         $limit           Maximum number of packages (1 to 25)
      * @param bool        $bundlesOnly     Only Symfony bundles (type symfony-bundle), not plain libraries
      * @param bool        $includeRejected Also packages that fail the catalog's PHP/Symfony requirements (outdated)
-     * @param string|null $symfony         Only packages supporting this Symfony version, e.g. "7.4" or "8.0"
+     * @param string|null $symfony         Only packages supporting this Symfony version, e.g. "8.0" or "8.1" (the catalog covers Symfony 8.0 and later)
      *
      * @return array<string, mixed>
      */

@@ -39,7 +39,7 @@
             </div>
         {% else %}
             <p class="text-muted">For example:
-                <em>What should I use in a Symfony 7.4 app that manages TEI encoding, with memory-friendly XML parsing?</em>,
+                <em>What should I use in a Symfony 8.1 app that manages TEI encoding, with memory-friendly XML parsing?</em>,
                 <em>Is there a Meilisearch bundle that supports Symfony 8?</em>,
                 <em>How many bundles are abandoned?</em></p>
         {% endfor %}
@@ -55,6 +55,7 @@
         {% if turns|length %}
             <form method="post" action="{{ path('ask_reset') }}"><button class="btn btn-link btn-sm px-0">Start a new conversation</button></form>
         {% endif %}
+        <p class="small text-muted">Questions and answers are saved for {{ retention_days }} days to see what people look for and improve the catalog. No IP address or account is stored with them. Please don't include personal information.</p>
         <p class="small text-muted">Answers come from the catalog through the same tools as the MCP server.
             <a href="{{ path('survos_ai_chat_connect') }}">Connect your own assistant ↗</a></p>
     </div>

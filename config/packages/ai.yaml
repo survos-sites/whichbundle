@@ -14,7 +14,7 @@ ai:
             tools:
                 - service: 'App\Chat\Tool\FindPackages'
                   name: 'find_packages'
-                  description: 'Find packages in the catalog for a need in plain words. Arguments: question, limit (1-25), bundlesOnly (only symfony-bundle), includeRejected (also packages failing PHP/Symfony requirements), symfony (a version such as "7.4"). Returns semantic (whether meaning was used) and results: name, description, type, downloads, stars, symfony and php versions, lastRelease, abandoned, status, rejected reason, url, packagist.'
+                  description: 'Find packages in the catalog for a need in plain words. Arguments: question, limit (1-25), bundlesOnly (only symfony-bundle), includeRejected (also packages failing PHP/Symfony requirements), symfony (a version such as "8.1"; the catalog covers Symfony 8.0 and later). Returns semantic (whether meaning was used) and results: name, description, type, downloads, stars, symfony and php versions, lastRelease, abandoned, status, rejected reason, url, packagist.'
                 - service: 'App\Chat\Tool\GetPackage'
                   name: 'get_package'
                   description: 'Read one catalogued package by name (vendor/name): summary, keywords, PHP and Symfony constraints, require list, homepage, source, replacement, and the start of its README.'

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Chat\ToolCallLog;
+use App\Entity\ChatTurn;
 use App\Service\PackageEmbeddingService;
+use Doctrine\ORM\EntityManagerInterface;
 use League\CommonMark\CommonMarkConverter;
 use Psr\Log\LoggerInterface;
 use Symfony\AI\Agent\AgentInterface;
@@ -37,6 +39,7 @@ final class AskController extends AbstractController
         private readonly ToolCallLog $log,
         private readonly CacheInterface $cache,
         private readonly LoggerInterface $logger,
+        private readonly EntityManagerInterface $em,
         #[\SensitiveParameter] #[Autowire(env: 'default::ANTHROPIC_API_KEY')] private readonly ?string $chatKey = null,
         #[Autowire(env: 'default::PACKAGES_CHAT_MODEL')] private readonly ?string $chatModel = null,
         #[\SensitiveParameter] #[Autowire(env: 'default::OPENAI_API_KEY')] private readonly ?string $embedKey = null,
@@ -50,6 +53,7 @@ final class AskController extends AbstractController
         return $this->render('ask/index.html.twig', [
             'turns' => $this->turns($this->conversation($request)),
             'chatReady' => $this->chatReady(),
+            'retention_days' => ChatTurn::RETENTION_DAYS,
             // Shown only in dev or to ROLE_ADMIN (see the template); never the keys themselves.
             'setup' => [
                 'chat' => ['platform' => 'Anthropic', 'model' => $this->chatModel ?: '(PACKAGES_CHAT_MODEL not set)', 'env' => 'ANTHROPIC_API_KEY', 'keySet' => $this->chatReady()],
@@ -95,6 +99,7 @@ final class AskController extends AbstractController
         $messages[] = Message::ofUser($question);
 
         $this->log->reset();
+        $started = hrtime(true);
         try {
             $result = $this->agent->call(new MessageBag(...$messages))->getResult();
             // With thinking on, Anthropic answers in parts (thinking, then text); keep only the text.
@@ -104,6 +109,7 @@ final class AskController extends AbstractController
             $this->logger->error('Catalog chat failed: {message}', ['message' => $e->getMessage(), 'exception' => $e]);
             $turn = ['question' => $question, 'answer' => 'The assistant could not answer: '.$e->getMessage(), 'tools' => $this->log->calls(), 'failed' => true];
         }
+        $this->save($id, $turn, (int) ((hrtime(true) - $started) / 1_000_000));
         $turn['html'] = (string) (new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]))->convert($turn['answer']);
 
         $turns[] = $turn;
@@ -115,6 +121,23 @@ final class AskController extends AbstractController
         });
 
         return $turn;
+    }
+
+    /**
+     * Keep the turn (the page says so; app:chat:purge removes old ones). Saving must never cost
+     * the visitor the answer, so a database failure is only logged.
+     *
+     * @param array<string, mixed> $turn
+     */
+    private function save(Uuid $conversation, array $turn, int $durationMs): void
+    {
+        try {
+            $this->em->persist(new ChatTurn($conversation, $turn['question'], $turn['answer'], $turn['tools'],
+                $turn['failed'] ?? false, $this->chatModel ?: null, $durationMs));
+            $this->em->flush();
+        } catch (\Throwable $e) {
+            $this->logger->error('Could not save the chat turn: {message}', ['message' => $e->getMessage(), 'exception' => $e]);
+        }
     }
 
     private function conversation(Request $request): Uuid

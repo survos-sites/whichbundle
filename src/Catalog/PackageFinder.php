@@ -49,7 +49,7 @@ final readonly class PackageFinder
     /**
      * @param bool        $bundlesOnly     only packages of type symfony-bundle
      * @param bool        $includeRejected also packages that fail the catalog's PHP/Symfony requirements
-     * @param string|null $symfony         only packages that support this Symfony major.minor, e.g. "7.4"
+     * @param string|null $symfony         only packages that support this Symfony major.minor, e.g. "8.1"
      *
      * @return array{semantic: bool, results: list<array<string, mixed>>}
      */

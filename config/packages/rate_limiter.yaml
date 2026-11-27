@@ -1,0 +1,17 @@
+# Limits for the public, unauthenticated endpoints (src/EventListener/RateLimitListener.php).
+# Each /ask question is a paid model call with up to 8 tool calls, so it has a per-visitor
+# limit and a site-wide daily cap that bounds the bill whatever the client IPs are.
+framework:
+    rate_limiter:
+        ask_visitor:
+            policy: sliding_window
+            limit: 20
+            interval: '1 hour'
+        ask_site:
+            policy: fixed_window
+            limit: 500
+            interval: '1 day'
+        mcp_visitor:
+            policy: token_bucket
+            limit: 120
+            rate: { interval: '1 minute', amount: 60 }

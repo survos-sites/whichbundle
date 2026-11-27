@@ -4,12 +4,17 @@
 
 :{$PORT:80} {
 	root * /app/public
-	# No `encode` directive: packages.survos.com is Cloudflare-proxied, and
+	# No `encode` directive: the site is Cloudflare-proxied, and
 	# Cloudflare compresses on the way to the browser regardless of what the
 	# origin sends. Setting Content-Encoding here just adds a layer that can
 	# go wrong in transit -- confirmed live with zstd (valid at the origin,
 	# broke every asset in the browser with net::ERR_CONTENT_DECODING_FAILED
 	# once it hit Cloudflare's edge). Let Cloudflare own it end-to-end.
+
+	# whichbundle.org is the public name; the www name redirects there. 308 keeps the
+	# method and body, so an MCP client posting to www's /mcp follows it.
+	@www host www.whichbundle.org
+	redir @www https://whichbundle.org{uri} 308
 
 	request_body {
 		max_size 64MB
