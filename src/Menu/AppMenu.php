@@ -10,9 +10,8 @@ use Survos\MenuBundle\Attribute\AsMenuListener;
 use Survos\MenuBundle\MenuSlot;
 
 /**
- * The home page is the faceted search, so the navbar has no links of its own: the logo is Home, GitHub sits in the top
- * row, and the admin tools (messenger monitor, entities, workflows, ...) come from ADMIN_NAVBAR_MENU.
- * Someday: an About page in NAVBAR_PRIMARY.
+ * The logo is Home (the About page), the primary navbar has Search, Ask and Connect, GitHub sits in the top row,
+ * and the admin tools (messenger monitor, entities, workflows, ...) come from ADMIN_NAVBAR_MENU.
  */
 final class AppMenu
 {
@@ -27,6 +26,7 @@ final class AppMenu
     #[AsMenuListener(MenuSlot::NAVBAR_PRIMARY)]
     public function ask(MenuEvent $event): void
     {
+        $this->add($event->getMenu(), route: 'app_search', label: 'Search', icon: 'tabler:search', translationDomain: false);
         $this->add($event->getMenu(), route: 'ask', label: 'Ask', icon: 'tabler:message-chatbot', translationDomain: false);
         // Claude, ChatGPT and Claude Code setup for /mcp, the page and route come from survos/ai-chat-bundle (config/packages/survos_ai_chat.yaml)
         $this->add($event->getMenu(), route: 'survos_ai_chat_connect', label: 'Connect your assistant', icon: 'tabler:plug-connected', translationDomain: false);

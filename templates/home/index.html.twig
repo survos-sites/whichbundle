@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}whichBundle: Symfony bundles that work with current PHP and Symfony{% endblock %}
+{% block page_content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <h1 class="display-6 mb-4">which<b>Bundle</b></h1>
+
+        <p class="lead">I'm a huge fan of third-party components, and especially Symfony bundles. If someone else has already solved the problem and made it available, yay!</p>
+        <p>But Symfony has a <em>huge</em> number of bundles, and I'm only interested in the ones that work with my stack: the latest releases of PHP and Symfony. So I wrote whichBundle to filter out the noise of older bundles.</p>
+        <p><strong>Now with an MCP connector!</strong> Ask your own AI assistant which bundle to use, and it answers from this catalog.</p>
+
+        <div class="d-flex flex-wrap gap-2 my-4">
+            <a class="btn btn-primary" href="{{ path('app_search') }}">{{ ux_icon('tabler:search', {class: 'icon'}) }} Search the catalog</a>
+            <a class="btn" href="{{ path('ask') }}">{{ ux_icon('tabler:message-chatbot', {class: 'icon'}) }} Ask a question</a>
+            <a class="btn" href="{{ path('survos_ai_chat_connect') }}">{{ ux_icon('tabler:plug-connected', {class: 'icon'}) }} Connect your assistant</a>
+        </div>
+
+        <div class="row row-cards mb-4">
+            {% for label, value in {'packages harvested from Packagist': counts.harvested, 'of them Symfony bundles': counts.bundles, 'modern packages Ask and MCP answer from': counts.modern} %}
+                <div class="col-sm-4"><div class="card card-sm"><div class="card-body">
+                    <div class="h1 mb-0">{{ value|number_format }}</div>
+                    <div class="text-secondary">{{ label }}</div>
+                </div></div></div>
+            {% endfor %}
+        </div>
+
+        <h2>What you can search</h2>
+        <p><a href="{{ path('app_search') }}">Search</a> covers everything harvested, with facets for the Symfony and PHP versions each package supports, so you can narrow it yourself.</p>
+        <p><a href="{{ path('ask') }}">Ask</a> and the MCP connector only answer with modern packages: those that support PHP {{ modernPhp|first }} or later and Symfony {{ modernSymfony|first }} or later (or don't depend on Symfony at all). Only these get README embeddings, so meaning-based search costs nothing for packages nobody on a current stack would pick.</p>
+
+        <h2>How it works</h2>
+        <ul>
+            <li><strong>Harvesting.</strong> A scheduled job follows Packagist's change feed. Each package then moves through a Symfony Workflow (load, check versions, fetch the README, embed if modern), with the steps run by Symfony Messenger workers.</li>
+            <li><strong>Search.</strong> Elasticsearch powers the faceted search (Symfony and PHP versions, vendor, status) and a meaning-based search over README embeddings from OpenAI <code>text-embedding-3-small</code>, stored in PostgreSQL and copied into Elasticsearch. Both are combined when you ask a question.</li>
+            <li><strong>Ask and MCP.</strong> The <a href="{{ path('ask') }}">Ask page</a> is a Symfony AI agent running Claude. It uses the same four tools the MCP server exposes at <code>/mcp</code>: find packages, read one package, search Packagist itself, and count the catalog.</li>
+            <li><strong>The stack.</strong> Symfony 8.1 on PHP 8.5 under FrankenPHP, PostgreSQL with Doctrine, AssetMapper and Stimulus with the Tabler theme. It's deployed with Dokku on a Hetzner server behind Cloudflare.</li>
+        </ul>
+
+        <p class="text-secondary">The source is on <a href="https://github.com/survos-sites/whichbundle">GitHub</a>.</p>
+    </div>
+</div>
+{% endblock %}

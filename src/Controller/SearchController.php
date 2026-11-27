@@ -25,8 +25,8 @@ final class SearchController extends AbstractController
         'sourceType' => 'Source',
     ];
 
-    #[Screenshot('home', caption: 'Faceted search', wait: '.ais-Hits, .hits, [data-controller]')]
-    #[Route('/', name: 'app_homepage', methods: ['GET'])]
+    #[Screenshot('search', caption: 'Faceted search', wait: '.ais-Hits, .hits, [data-controller]')]
+    #[Route('/search', name: 'app_search', methods: ['GET'])]
     public function index(
         SearchProvider $provider,
         HttpClientInterface $http,
